@@ -1,0 +1,7 @@
+__pycache__/
+node_modules/
+.env
+.env.*
+qa/screenshots/
+qa/*.json
+*.zip
