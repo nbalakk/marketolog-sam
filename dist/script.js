@@ -2,11 +2,22 @@
 'use strict';
 const config = window.SAM_CONFIG || {};
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionByElement = new WeakMap();
+function animateElement(element, frames, options = {}) {
+ if (!element || reduced.matches || !element.animate) return null;
+ motionByElement.get(element)?.cancel();
+ const animation = element.animate(frames, {duration: 560, easing: 'cubic-bezier(.2,.75,.2,1)', ...options});
+ motionByElement.set(element, animation);
+ return animation;
+}
+reduced.addEventListener('change', () => {
+ if (reduced.matches) document.getAnimations().forEach(animation => animation.finish());
+});
 const toggle = document.getElementById('navToggle');
 const nav = document.getElementById('primaryNav');
 const narrow = window.matchMedia('(max-width: 680px)');
 function closeMenu(focus=false) { if (!toggle || !nav) return; toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Открыть меню');nav.classList.remove('is-open');nav.inert=narrow.matches;if(focus)toggle.focus(); }
-if (toggle && nav) { nav.inert=narrow.matches;toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');nav.classList.toggle('is-open',open);nav.inert=narrow.matches&&!open;}); nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));narrow.addEventListener('change',()=>closeMenu()); }
+if (toggle && nav) { nav.inert=narrow.matches;toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');nav.classList.toggle('is-open',open);nav.inert=narrow.matches&&!open;if(open)animateElement(nav,[{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'translateY(0)'}],{duration:320});}); nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));narrow.addEventListener('change',()=>closeMenu()); }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu(toggle?.getAttribute('aria-expanded')==='true');});
 document.addEventListener('click',e=>{if(toggle?.getAttribute('aria-expanded')==='true'&&!e.target.closest('.header'))closeMenu();});
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{const target=document.getElementById(a.hash.slice(1));if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}}));
@@ -27,7 +38,7 @@ const panel=document.getElementById('demo-panel'),output=document.getElementById
 const tabs=[...document.querySelectorAll('[data-example]')];let example='post',stage=2;
 const initialPost=output?.innerHTML;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function render(announce=true) {
+function render(announce=true,direction=1) {
  if(!panel||!output)return;
  const model=examples[example];
  tabs.forEach(t=>{const selected=t.dataset.example===example;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;});
@@ -41,22 +52,68 @@ function render(announce=true) {
  else if(example==='post')output.innerHTML=initialPost;
  else if(example==='plan')output.innerHTML='<div><h3 class="draft-heading">Неделя в вашей кофейне</h3><table class="plan-table"><thead><tr><th>День</th><th>Тема и формат</th></tr></thead><tbody><tr><td>Пн</td><td>Осенний напиток: фото и история вкуса</td></tr><tr><td>Вт</td><td>Знакомство с бариста: короткое интервью</td></tr><tr><td>Ср</td><td>Любимый десерт гостей: опрос</td></tr><tr><td>Чт</td><td>Как готовим кофе: небольшой процесс</td></tr><tr><td>Пт</td><td>Идея для выходных: приглашение зайти</td></tr></tbody></table><p class="fine-print">Редакционный пример. Адаптируйте темы под своё меню.</p></div>';
  else output.innerHTML='<div><h3 class="draft-heading">Что проверить в первую очередь</h3><ul class="audit-list"><li><span class="audit-tag">01</span><div><strong>Описание профиля</strong><p>Новый гость должен быстро понять, где вы находитесь и чем интересна кофейня.</p></div></li><li><span class="audit-tag">02</span><div><strong>Меню и контакты</strong><p>Проверьте, что адрес, часы работы и актуальное меню легко найти.</p></div></li><li><span class="audit-tag">03</span><div><strong>Следующий шаг</strong><p>Подскажите, как забронировать стол, задать вопрос или проложить маршрут.</p></div></li></ul><p class="fine-print">Образец структуры разбора, не аудит реального бизнеса.</p></div>';
- if(!reduced.matches&&announce&&output.animate)output.animate([{opacity:.3,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:220,easing:'ease-out'});
+ if(announce)animateElement(output,[{opacity:0,transform:'translateX('+direction*18+'px)'},{opacity:1,transform:'translateX(0)'}],{duration:380});
  if(announce){document.getElementById('demo-status').textContent=model.label+': '+['Задача','Черновик','Ваш материал'][stage];track('demo_interaction',{example,stage});}
 }
-tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>{example=tab.dataset.example;stage=2;render();});tab.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();tabs[next].focus();tabs[next].click();}});});
+tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>{const direction=tabs.findIndex(t=>t.dataset.example===example)<=i?1:-1;example=tab.dataset.example;stage=2;render(true,direction);});tab.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();tabs[next].focus();tabs[next].click();}});});
 document.querySelectorAll('[data-stage]').forEach(button=>button.addEventListener('click',()=>{stage=Number(button.dataset.stage);render();}));
 document.getElementById('demo-next')?.addEventListener('click',()=>{stage=(stage+1)%3;render();});
-document.getElementById('demo-prev')?.addEventListener('click',()=>{stage=(stage+2)%3;render();});
+document.getElementById('demo-prev')?.addEventListener('click',()=>{stage=(stage+2)%3;render(true,-1);});
 document.querySelectorAll('[data-show-example]').forEach(button=>button.addEventListener('click',()=>{example=button.dataset.showExample;stage=2;render();document.getElementById('examples').scrollIntoView({block:'start',behavior:reduced.matches?'auto':'smooth'});tabs.find(t=>t.dataset.example===example).focus({preventScroll:true});}));
 let touchX,touchY;
 panel?.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;touchY=e.changedTouches[0].clientY;},{passive:true});
-panel?.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX,dy=e.changedTouches[0].clientY-touchY;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5){stage=(stage+(dx<0?1:2))%3;render();}},{passive:true});
+panel?.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX,dy=e.changedTouches[0].clientY-touchY;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5){stage=(stage+(dx<0?1:2))%3;render(true,dx<0?1:-1);}},{passive:true});
 if(panel)render(false);
 document.getElementById('copy-prompt')?.addEventListener('click',async()=>{const text='Напиши пост для кофейни про осенний пряный латте. Аудитория — гости по утрам, цель — пригласить зайти. Тёплый дружелюбный тон. Без скидок и выдуманных фактов.';const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText(text);status.textContent='Готово. Вставьте запрос в чат с Сэмом.';}catch{status.textContent='Скопируйте текст: '+text;}});
 
-// Motion is an enhancement: content stays readable even if JS or observers fail.
-if(!reduced.matches&&'IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.animate?.([{opacity:.65,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:400,easing:'cubic-bezier(.2,.7,.3,1)'});observer.unobserve(entry.target);}});},{threshold:.15});document.querySelectorAll('.section-heading,.tool,.how-grid>li,.pricing-grid,.final-inner').forEach(el=>observer.observe(el));}
+// Entrance choreography is an enhancement; static content remains available.
+function revealHero() {
+ document.querySelectorAll('.hero-copy > *').forEach((element,index) => {
+  animateElement(element,[{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:640,delay:index*65,fill:'backwards'});
+ });
+ animateElement(document.querySelector('.hero .demo'),[{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:760,delay:160,fill:'backwards'});
+}
+if (!reduced.matches) {
+ (document.fonts?.ready || Promise.resolve()).then(() => requestAnimationFrame(revealHero));
+}
+if ('IntersectionObserver' in window) {
+ const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+   if (!entry.isIntersecting) return;
+   const element=entry.target;
+   const siblings=[...element.parentElement.children].filter(node=>node.matches('.tool,.how-grid>li'));
+   const stagger=Math.max(0,siblings.indexOf(element))*90;
+   animateElement(element,[{opacity:0,transform:'translateY(28px)'},{opacity:1,transform:'translateY(0)'}],{duration:660,delay:stagger,fill:'backwards'});
+   observer.unobserve(element);
+  });
+ },{threshold:.12});
+ document.querySelectorAll('.section-heading,.tools .section-title,.tool,.how-grid>li,.pricing-intro,.terms-panel,.faq-grid>.section-title,.final-inner').forEach(element=>observer.observe(element));
+}
+
+// Animate the real details element so native links and keyboard behavior remain intact.
+const detailsTargets = new WeakMap();
+document.querySelectorAll('.faq-item').forEach(details => {
+ details.querySelector('summary').addEventListener('click',event => {
+  if (reduced.matches || !details.animate) return;
+  event.preventDefault();
+  const opening=!(detailsTargets.get(details) ?? details.open);
+  detailsTargets.set(details,opening);
+  const from=details.getBoundingClientRect().height;
+  motionByElement.get(details)?.cancel();
+  details.style.height='';
+  details.open=true;
+  const to=opening?details.getBoundingClientRect().height:details.querySelector('summary').getBoundingClientRect().height+1;
+  details.style.overflow='hidden';
+  const animation=animateElement(details,[{height:from+'px'},{height:to+'px'}],{duration:320});
+  if (!animation) {details.open=opening;details.style.overflow='';return;}
+  animation.finished.then(() => {
+   if (motionByElement.get(details)!==animation) return;
+   details.open=opening;
+   details.style.overflow='';
+   detailsTargets.delete(details);
+  }).catch(()=>{});
+ });
+});
   // Public prices appear only after the owner supplies and verifies the terms.
   const pricing = config.pricing;
   if (pricing?.verified && pricing.freeDescription && pricing.renewalDescription && pricing.plans?.length && pricing.plans.every(p => p.name && p.price && p.period && p.limits)) {

@@ -3,7 +3,7 @@ no UI rasterization. */
 :root {
   --ink:#111c2b;
   --blue:#2c51a1;
-  --yellow:#f3da79;
+  --yellow:#ffdc57;
   --paper:#fffefa;
   --soft:#f5f3ee;
   --muted:#616b7d;
@@ -654,7 +654,7 @@ h2,h3 {
   margin-bottom:22px
 }
 .how {
-  background:#f6f3e9
+  background:#fff7dc
 }
 .section-heading {
   display:flex;
@@ -1800,4 +1800,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
   .demo-body {
     min-height:670px
   }
+}
+
+/* More expressive transitions, keeping reading and touch interaction stable. */
+.button { transition: transform 260ms cubic-bezier(.2,.8,.2,1), background 220ms, box-shadow 260ms; }
+.button .button-arrow { transition: transform 260ms cubic-bezier(.2,.8,.2,1); }
+.button:hover .button-arrow { transform: translateX(5px); }
+.demo-tab::after { transition: transform 320ms cubic-bezier(.2,.8,.2,1); }
+.round-button { transition: background 220ms, transform 260ms cubic-bezier(.2,.8,.2,1); }
+.round-button:hover { background: #fff0b2; transform: translateY(-2px); }
+.stage-rail button::before { transition: background 260ms, box-shadow 260ms; }
+.stage-rail button[aria-pressed=true]::before { box-shadow: 0 0 0 4px #2c51a112; }
+.faq-item summary::after { transition: transform 300ms cubic-bezier(.2,.8,.2,1); }
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .button:hover, .button:hover .button-arrow, .round-button:hover { transform: none; }
 }
