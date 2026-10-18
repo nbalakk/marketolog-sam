@@ -247,7 +247,7 @@ h2,h3 {
   display:block;
   white-space:nowrap
 }
-.hero h1 span:last-child {
+.hero h1 span:last-of-type {
   color:var(--blue)
 }
 .hero-lead {
@@ -1724,7 +1724,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
 .demo {
   padding-bottom:14px
 }
-.hero h1 span:last-child {
+.hero h1 span:last-of-type {
   font-size:.91em;
   line-height:1.14
 }
@@ -1761,7 +1761,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
   .demo-body {
     min-height:510px
   }
-  .hero h1 span:last-child {
+  .hero h1 span:last-of-type {
     font-size:.91em
   }
 }
@@ -1816,3 +1816,44 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .button:hover, .button:hover .button-arrow, .round-button:hover { transform: none; }
 }
+
+/* Editorial marginal notes: live text, local pen assets, generous reading space. */
+@font-face {
+  font-family: 'Caveat'; font-style: normal; font-weight: 400 700;
+  font-display: swap; src: url('fonts/caveat.ttf') format('truetype');
+}
+:root { --editor-ink: #bd402e; }
+.hero h1 { position: relative; }
+.editor-underline {
+  position: absolute; left: 0; bottom: -17px;
+  width: 220px; height: 20px; object-fit: contain; pointer-events: none;
+}
+.editor-note {
+  font: 500 26px/1.1 Caveat, cursive; color: var(--editor-ink);
+  letter-spacing: 0; pointer-events: none;
+}
+.prompt-block { position: relative; }
+.thought-note { position: absolute; top: 8px; right: 55px; transform: rotate(-3deg); white-space: nowrap; }
+.thought-note img { position: absolute; width: 40px; height: 31px; left: -45px; top: 11px; object-fit: contain; }
+.demo-body { position: relative; padding-bottom: 36px; min-height: 544px; }
+.result-note { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; margin: 0; transform: none; }
+.edit-sample { padding-top: 2px; }
+.edit-sample p { font-size: 16px; line-height: 1.6; color: #424e62; margin-bottom: 15px; }
+.edit-sample .edit-before { font-size: 18px; color: #747b86; }
+.edit-before del { text-decoration-color: var(--editor-ink); text-decoration-thickness: 1.5px; }
+.edit-sample .edit-after { font-size: 23px; line-height: 1.3; font-weight: 800; color: var(--ink); margin-bottom: 17px; }
+.edit-after ins { text-decoration: none; }
+.edit-after mark { background: #ffe99b; color: inherit; padding: 0 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.edit-sample .edit-comment { font: 500 26px/1.1 Caveat, cursive; color: var(--editor-ink); margin-top: 10px; }
+@media(min-width:901px) and (max-width:1150px) { .demo-body { min-height:616px; } .thought-note { right: 8px; font-size: 23px; } }
+@media(max-width:900px) { .demo-body { min-height:546px; } .editor-underline { width: 180px; height: 17px; bottom: -14px; } }
+@media(max-width:680px) {
+  .editor-underline { width: 130px; height: 14px; bottom: -12px; }
+  .thought-note { right: 7px; top: 7px; font-size: 22px; }
+  .thought-note img { width: 30px; height: 24px; left: -33px; top: 12px; }
+  .demo-body { min-height:686px; }
+  .result-note { font-size: 24px; }
+  .edit-sample .edit-after { font-size: 22px; }
+  .edit-sample .edit-comment { font-size: 25px; }
+}
+@media(max-width:340px) { .demo-body { min-height:706px; } .thought-note { font-size: 20px; right: 0; } .result-note { font-size: 21px; } }

@@ -48,10 +48,17 @@ function render(announce=true,direction=1) {
  document.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.stage)===stage)));
  output.classList.toggle('single',stage!==2||example!=='post');
  if(stage===0) output.innerHTML='<div><h3 class="draft-heading">Чем точнее запрос,<br>тем полезнее материал.</h3><ul class="draft-list"><li><b>01</b><span>Что за бизнес и для кого вы пишете?</span></li><li><b>02</b><span>Какую задачу должен решить материал?</span></li><li><b>03</b><span>Какие факты, тон и формат важно учесть?</span></li></ul><p class="draft-note">'+esc(model.prompt)+'</p></div>';
+ else if(stage===1&&example==='post') output.innerHTML='<div class="edit-sample"><p class="edit-before"><del>Уникальное осеннее предложение!</del></p><p class="edit-after"><ins>Загляните <mark>на осенний кофе.</mark></ins></p><p>Сезонный латте, тёплый пирог и немного больше поводов для встречи.</p><p class="edit-comment">Конкретнее и ближе к гостю</p><p class="fine-print">Редакционный образец: показываем, как общую фразу можно сделать предметнее.</p></div>';
  else if(stage===1) output.innerHTML='<div><h3 class="draft-heading">'+esc(model.draftTitle)+'</h3><ul class="draft-list">'+model.draft.map((s,i)=>'<li><b>0'+(i+1)+'</b><span>'+esc(s)+'</span></li>').join('')+'</ul><p class="draft-note">Черновик — отправная точка. Детали бизнеса и финальный голос добавляете вы.</p></div>';
  else if(example==='post')output.innerHTML=initialPost;
  else if(example==='plan')output.innerHTML='<div><h3 class="draft-heading">Неделя в вашей кофейне</h3><table class="plan-table"><thead><tr><th>День</th><th>Тема и формат</th></tr></thead><tbody><tr><td>Пн</td><td>Осенний напиток: фото и история вкуса</td></tr><tr><td>Вт</td><td>Знакомство с бариста: короткое интервью</td></tr><tr><td>Ср</td><td>Любимый десерт гостей: опрос</td></tr><tr><td>Чт</td><td>Как готовим кофе: небольшой процесс</td></tr><tr><td>Пт</td><td>Идея для выходных: приглашение зайти</td></tr></tbody></table><p class="fine-print">Редакционный пример. Адаптируйте темы под своё меню.</p></div>';
  else output.innerHTML='<div><h3 class="draft-heading">Что проверить в первую очередь</h3><ul class="audit-list"><li><span class="audit-tag">01</span><div><strong>Описание профиля</strong><p>Новый гость должен быстро понять, где вы находитесь и чем интересна кофейня.</p></div></li><li><span class="audit-tag">02</span><div><strong>Меню и контакты</strong><p>Проверьте, что адрес, часы работы и актуальное меню легко найти.</p></div></li><li><span class="audit-tag">03</span><div><strong>Следующий шаг</strong><p>Подскажите, как забронировать стол, задать вопрос или проложить маршрут.</p></div></li></ul><p class="fine-print">Образец структуры разбора, не аудит реального бизнеса.</p></div>';
+ const editorialNote=document.getElementById('editor-result-note');
+ if(editorialNote)editorialNote.textContent=['Сначала — ваша мысль','Намечаем главное','Теперь есть с чем работать'][stage];
+ if(announce){
+  animateElement(editorialNote,[{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,delay:100,fill:'backwards'});
+  output.querySelectorAll('.edit-sample > *').forEach((element,index)=>animateElement(element,[{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'translateY(0)'}],{duration:380,delay:index*55,fill:'backwards'}));
+ }
  if(announce)animateElement(output,[{opacity:0,transform:'translateX('+direction*18+'px)'},{opacity:1,transform:'translateX(0)'}],{duration:380});
  if(announce){document.getElementById('demo-status').textContent=model.label+': '+['Задача','Черновик','Ваш материал'][stage];track('demo_interaction',{example,stage});}
 }
@@ -68,6 +75,8 @@ document.getElementById('copy-prompt')?.addEventListener('click',async()=>{const
 
 // Entrance choreography is an enhancement; static content remains available.
 function revealHero() {
+ animateElement(document.querySelector('.editor-underline'),[{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)'}],{duration:620,delay:480,fill:'backwards'});
+ animateElement(document.querySelector('.thought-note img'),[{opacity:0,clipPath:'inset(0 100% 0 0)'},{opacity:1,clipPath:'inset(0 0% 0 0)'}],{duration:480,delay:640,fill:'backwards'});
  document.querySelectorAll('.hero-copy > *').forEach((element,index) => {
   animateElement(element,[{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:640,delay:index*65,fill:'backwards'});
  });
