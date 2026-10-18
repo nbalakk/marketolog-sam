@@ -12,3 +12,5 @@ section{padding:64px 0}.hero{padding:55px 0 60px}.hero__inner{gap:48px}.hero__ti
 
 @media(max-width:1024px){.hero__inner{display:flex;flex-direction:column}.hero__content{order:0;width:100%}.hero__visual{order:1;width:100%;max-width:460px;margin:auto}}
 @media(max-width:860px){body:not(.legal-page) .primary-nav{max-height:0;overflow:hidden;visibility:hidden;pointer-events:none}body:not(.legal-page) .primary-nav.is-open{max-height:calc(100dvh - 72px);overflow-y:auto;visibility:visible;pointer-events:auto}}
+
+@media(max-width:640px){.legal-doc h1{font-family:Manrope,sans-serif;font-size:clamp(23px,6.3vw,32px);overflow-wrap:normal}}
