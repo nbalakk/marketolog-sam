@@ -5,3 +5,14 @@ node_modules/
 qa/screenshots/
 qa/*.json
 *.zip
+
+# Diagnostic captures; selected final evidence is explicitly tracked.
+qa/redesign/*
+!qa/redesign/comparison-final.jpg
+!qa/redesign/comparison-headline.jpg
+!qa/redesign/comparison-demo.jpg
+!qa/redesign/final-1374.png
+!qa/redesign/mobile-first-screen.png
+!qa/redesign/menu.png
+!qa/redesign/pricing.png
+!qa/redesign/faq.png

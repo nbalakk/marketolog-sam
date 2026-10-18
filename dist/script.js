@@ -1,73 +1,62 @@
 (() => {
-  'use strict';
-  const config = window.SAM_CONFIG || {};
-  const toggle = document.getElementById('navToggle');
-  const nav = document.getElementById('primaryNav');
-  const mobile = window.matchMedia('(max-width: 860px)');
-  if (nav && toggle) nav.inert = mobile.matches;
-  function closeMenu(returnFocus = false) {
-    if (!toggle || !nav) return;
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Открыть меню');
-    nav.classList.remove('is-open');
-    nav.inert = mobile.matches;
-    if (returnFocus) toggle.focus();
-  }
-  toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-    nav.classList.toggle('is-open', open);
-    nav.inert = mobile.matches && !open;
-  });
-  document.addEventListener('click', e => {
-    if (toggle?.getAttribute('aria-expanded') === 'true' && !e.target.closest('.site-header')) closeMenu();
-  });
-  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeMenu()));
-  mobile.addEventListener('change', () => closeMenu());
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeMenu(toggle?.getAttribute('aria-expanded') === 'true');
-  });
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
-    const target = document.getElementById(a.hash.slice(1));
-    if (!target) return;
-    target.setAttribute('tabindex', '-1');
-    target.focus({ preventScroll: true });
-  }));
+'use strict';
+const config = window.SAM_CONFIG || {};
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+const toggle = document.getElementById('navToggle');
+const nav = document.getElementById('primaryNav');
+const narrow = window.matchMedia('(max-width: 680px)');
+function closeMenu(focus=false) { if (!toggle || !nav) return; toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Открыть меню');nav.classList.remove('is-open');nav.inert=narrow.matches;if(focus)toggle.focus(); }
+if (toggle && nav) { nav.inert=narrow.matches;toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');nav.classList.toggle('is-open',open);nav.inert=narrow.matches&&!open;}); nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));narrow.addEventListener('change',()=>closeMenu()); }
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu(toggle?.getAttribute('aria-expanded')==='true');});
+document.addEventListener('click',e=>{if(toggle?.getAttribute('aria-expanded')==='true'&&!e.target.closest('.header'))closeMenu();});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{const target=document.getElementById(a.hash.slice(1));if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}}));
 
-  const dialog = document.getElementById('image-dialog');
-  const image = document.getElementById('dialog-image');
-  const caption = document.getElementById('image-caption');
-  let previousFocus;
-  document.querySelectorAll('.screenshot-card').forEach(button => button.addEventListener('click', () => {
-    previousFocus = button;
-    image.src = button.dataset.fullImage;
-    image.alt = button.dataset.imageAlt;
-    caption.textContent = image.alt;
-    dialog.showModal();
-    document.body.classList.add('modal-open');
-    track('example_open', { example: button.dataset.fullImage });
-  }));
-  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('keydown', e => {
-    if (e.key === 'Tab') { e.preventDefault(); dialog.querySelector('.dialog-close').focus(); }
-  });
-  dialog?.addEventListener('click', e => {
-    if (e.target !== dialog) return;
-    const r = dialog.getBoundingClientRect();
-    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();
-  });
-  dialog?.addEventListener('close', () => {
-    document.body.classList.remove('modal-open');
-    image.removeAttribute('src');
-    previousFocus?.focus({ preventScroll: true });
-  });
-  document.querySelectorAll('.copy-prompt').forEach(button => button.addEventListener('click', async () => {
-    const status = button.parentElement.querySelector('.copy-status');
-    try { await navigator.clipboard.writeText(button.dataset.prompt); status.textContent = 'Запрос скопирован. Вставьте его в чат с Сэмом.'; }
-    catch { status.textContent = 'Не удалось скопировать автоматически. Выделите и скопируйте текст запроса ниже.'; const text = document.createElement('p'); text.textContent = button.dataset.prompt; status.replaceChildren(document.createTextNode(status.textContent), text); }
-  }));
+const dialog=document.getElementById('image-dialog'),dialogImage=document.getElementById('dialog-image');let lastFocus;
+document.querySelectorAll('.screenshot-card').forEach(button=>button.addEventListener('click',()=>{lastFocus=button;dialogImage.src=button.dataset.fullImage;dialogImage.alt=button.dataset.imageAlt;document.getElementById('image-caption').textContent=dialogImage.alt;dialog.showModal();document.body.classList.add('modal-open');track('example_open',{example:button.dataset.fullImage});}));
+dialog?.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
+dialog?.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();dialog.querySelector('.dialog-close').focus();}});
+dialog?.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+dialog?.addEventListener('close',()=>{document.body.classList.remove('modal-open');dialogImage.removeAttribute('src');lastFocus?.focus({preventScroll:true});});
 
+const examples={
+post:{label:'Пост',prompt:'Анонс осеннего меню кофейни.\nДружелюбно, без рекламных клише.',draftTitle:'Осень — повод встретиться',draft:['Начать с повода: осеннее меню уже в кофейне.','Добавить детали: напиток, атмосфера, тёплый вкус.','Закончить простым приглашением без громких обещаний.']},
+plan:{label:'Контент-план',prompt:'План на неделю для кофейни.\nПознакомить с меню и командой, вовлечь гостей.',draftTitle:'Чередуем продукт, людей и общение',draft:['Показать сезонный напиток и рассказать о его вкусе.','Познакомить с бариста и повседневной жизнью кофейни.','Задать гостям простой вопрос и пригласить на выходные.']},
+audit:{label:'Разбор страницы',prompt:'Разбор страницы кофейни.\nПонятно ли новым гостям, что у нас есть и как нас найти?',draftTitle:'Смотрим глазами нового гостя',draft:['Понятна ли кофейня из описания профиля?','Есть ли адрес, часы работы и актуальное меню?','Что в публикациях помогает человеку решить, стоит ли зайти?']}
+};
+const panel=document.getElementById('demo-panel'),output=document.getElementById('demo-output');
+const tabs=[...document.querySelectorAll('[data-example]')];let example='post',stage=2;
+const initialPost=output?.innerHTML;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(announce=true) {
+ if(!panel||!output)return;
+ const model=examples[example];
+ tabs.forEach(t=>{const selected=t.dataset.example===example;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;});
+ panel.setAttribute('aria-labelledby','tab-'+example);
+ document.getElementById('demo-prompt').textContent=model.prompt;
+ document.getElementById('stage-title').textContent=['Уточняем задачу','Вариант структуры','Пример результата'][stage];
+ document.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.stage)===stage)));
+ output.classList.toggle('single',stage!==2||example!=='post');
+ if(stage===0) output.innerHTML='<div><h3 class="draft-heading">Чем точнее запрос,<br>тем полезнее материал.</h3><ul class="draft-list"><li><b>01</b><span>Что за бизнес и для кого вы пишете?</span></li><li><b>02</b><span>Какую задачу должен решить материал?</span></li><li><b>03</b><span>Какие факты, тон и формат важно учесть?</span></li></ul><p class="draft-note">'+esc(model.prompt)+'</p></div>';
+ else if(stage===1) output.innerHTML='<div><h3 class="draft-heading">'+esc(model.draftTitle)+'</h3><ul class="draft-list">'+model.draft.map((s,i)=>'<li><b>0'+(i+1)+'</b><span>'+esc(s)+'</span></li>').join('')+'</ul><p class="draft-note">Черновик — отправная точка. Детали бизнеса и финальный голос добавляете вы.</p></div>';
+ else if(example==='post')output.innerHTML=initialPost;
+ else if(example==='plan')output.innerHTML='<div><h3 class="draft-heading">Неделя в вашей кофейне</h3><table class="plan-table"><thead><tr><th>День</th><th>Тема и формат</th></tr></thead><tbody><tr><td>Пн</td><td>Осенний напиток: фото и история вкуса</td></tr><tr><td>Вт</td><td>Знакомство с бариста: короткое интервью</td></tr><tr><td>Ср</td><td>Любимый десерт гостей: опрос</td></tr><tr><td>Чт</td><td>Как готовим кофе: небольшой процесс</td></tr><tr><td>Пт</td><td>Идея для выходных: приглашение зайти</td></tr></tbody></table><p class="fine-print">Редакционный пример. Адаптируйте темы под своё меню.</p></div>';
+ else output.innerHTML='<div><h3 class="draft-heading">Что проверить в первую очередь</h3><ul class="audit-list"><li><span class="audit-tag">01</span><div><strong>Описание профиля</strong><p>Новый гость должен быстро понять, где вы находитесь и чем интересна кофейня.</p></div></li><li><span class="audit-tag">02</span><div><strong>Меню и контакты</strong><p>Проверьте, что адрес, часы работы и актуальное меню легко найти.</p></div></li><li><span class="audit-tag">03</span><div><strong>Следующий шаг</strong><p>Подскажите, как забронировать стол, задать вопрос или проложить маршрут.</p></div></li></ul><p class="fine-print">Образец структуры разбора, не аудит реального бизнеса.</p></div>';
+ if(!reduced.matches&&announce&&output.animate)output.animate([{opacity:.3,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:220,easing:'ease-out'});
+ if(announce){document.getElementById('demo-status').textContent=model.label+': '+['Задача','Черновик','Ваш материал'][stage];track('demo_interaction',{example,stage});}
+}
+tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>{example=tab.dataset.example;stage=2;render();});tab.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();tabs[next].focus();tabs[next].click();}});});
+document.querySelectorAll('[data-stage]').forEach(button=>button.addEventListener('click',()=>{stage=Number(button.dataset.stage);render();}));
+document.getElementById('demo-next')?.addEventListener('click',()=>{stage=(stage+1)%3;render();});
+document.getElementById('demo-prev')?.addEventListener('click',()=>{stage=(stage+2)%3;render();});
+document.querySelectorAll('[data-show-example]').forEach(button=>button.addEventListener('click',()=>{example=button.dataset.showExample;stage=2;render();document.getElementById('examples').scrollIntoView({block:'start',behavior:reduced.matches?'auto':'smooth'});tabs.find(t=>t.dataset.example===example).focus({preventScroll:true});}));
+let touchX,touchY;
+panel?.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;touchY=e.changedTouches[0].clientY;},{passive:true});
+panel?.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX,dy=e.changedTouches[0].clientY-touchY;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5){stage=(stage+(dx<0?1:2))%3;render();}},{passive:true});
+if(panel)render(false);
+document.getElementById('copy-prompt')?.addEventListener('click',async()=>{const text='Напиши пост для кофейни про осенний пряный латте. Аудитория — гости по утрам, цель — пригласить зайти. Тёплый дружелюбный тон. Без скидок и выдуманных фактов.';const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText(text);status.textContent='Готово. Вставьте запрос в чат с Сэмом.';}catch{status.textContent='Скопируйте текст: '+text;}});
+
+// Motion is an enhancement: content stays readable even if JS or observers fail.
+if(!reduced.matches&&'IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.animate?.([{opacity:.65,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:400,easing:'cubic-bezier(.2,.7,.3,1)'});observer.unobserve(entry.target);}});},{threshold:.15});document.querySelectorAll('.section-heading,.tool,.how-grid>li,.pricing-grid,.final-inner').forEach(el=>observer.observe(el));}
   // Public prices appear only after the owner supplies and verifies the terms.
   const pricing = config.pricing;
   if (pricing?.verified && pricing.freeDescription && pricing.renewalDescription && pricing.plans?.length && pricing.plans.every(p => p.name && p.price && p.period && p.limits)) {
@@ -124,4 +113,5 @@
     const observer = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) { if (consent === 'accepted') { track('pricing_view'); observer.disconnect(); } } }, { threshold: 0.25 });
     observer.observe(observed);
   }
+
 })();
