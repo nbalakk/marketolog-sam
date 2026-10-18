@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>ИИ-бот для контента и маркетинга в Telegram — идеи, тексты, аудит и аналитика</title>
+<meta name="description" content="Telegram-бот с ИИ: идеи для постов, готовые тексты, контент-план, аудит соцсетей, анализ конкурентов и генерация изображений. Бесплатный старт прямо в чате.">
+<meta name="keywords" content="ИИ бот, telegram бот, контент, маркетинг, SMM, копирайтинг, аудит соцсетей, контент-план">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://example.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ИИ-помощник по контенту и маркетингу">
+<meta property="og:title" content="ИИ-помощник, который думает о контенте и маркетинге вместо вас">
+<meta property="og:description" content="Идеи для постов, готовые тексты, аудит соцсетей и анализ конкурентов — прямо в Telegram, без найма отдельного специалиста.">
+<meta property="og:image" content="images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://example.com/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ИИ-помощник, который думает о контенте и маркетинге вместо вас">
+<meta name="twitter:description" content="Идеи для постов, готовые тексты, аудит соцсетей и анализ конкурентов — прямо в Telegram.">
+<meta name="twitter:image" content="images/og-cover.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" href="images/favicon-apple-touch.png">
+<meta name="theme-color" content="#6C4DFF">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="top">
+  <div class="container header__inner">
+    <a href="#top" class="logo" aria-label="ИИ-помощник — на главную">
+      <span class="logo__icon" aria-hidden="true">🤖</span>
+      <span class="logo__text">ИИ-Помощник</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Открыть меню">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Основная навигация">
+      <ul class="primary-nav__list">
+        <li><a href="#content">Возможности</a></li>
+        <li><a href="#how-it-works">Как работает</a></li>
+        <li><a href="#pricing">Тарифы</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="https://t.me/smm_platform_sam_bot?start=landing"
+         class="btn btn--primary btn--nav js-open-bot"
+         aria-label="Открыть Telegram-бота"
+         target="_blank"
+         rel="noopener noreferrer">
+        Открыть бота
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 id="hero-title" class="hero__title">ИИ-помощник, который думает о контенте и маркетинге вместо вас</h1>
+        <p class="hero__subtitle">Идеи для постов, готовые тексты, аудит соцсетей и анализ конкурентов — прямо в Telegram, без найма отдельного специалиста.</p>
+
+        <div class="hero__actions">
+          <a href="https://t.me/smm_platform_sam_bot?start=landing"
+             class="btn btn--primary btn--large js-open-bot"
+             aria-label="Открыть бота в Telegram"
+             target="_blank"
+             rel="noopener noreferrer">
+            Открыть бота в Telegram →
+          </a>
+             <a href="VK_COMMUNITY_URL"
+             class="link-secondary js-vk-fallback is-hidden"
+             aria-label="Если Telegram не открылся — продолжить во ВКонтакте"
+             rel="noopener">
+            Если Telegram не открылся — продолжить во ВКонтакте
+          </a>
+        </div>
+
+        <p class="hero__microcopy">Бесплатный старт · Ответ за секунды · Работает 24/7</p>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="chat-mockup">
+          <div class="chat-mockup__header">
+            <span class="chat-mockup__avatar">🤖</span>
+            <span class="chat-mockup__name">ИИ-Помощник</span>
+          </div>
+          <div class="chat-mockup__body">
+            <div class="chat-bubble chat-bubble--user">Придумай 5 идей постов для кофейни</div>
+            <div class="chat-bubble chat-bubble--bot">Готово! Вот темы, которые зайдут вашей аудитории: …</div>
+            <div class="chat-bubble chat-bubble--user">Сделай аудит моей страницы Instagram</div>
+            <div class="chat-bubble chat-bubble--bot">Собрал рекомендации по оформлению и контенту …</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПРОБЛЕМЫ ================= -->
+  <section class="problems" id="problems" aria-labelledby="problems-title">
+    <div class="container">
+      <h2 id="problems-title">Знакомая история?</h2>
+      <p class="section-lead">Контент и маркетинг съедают время, которого и так не хватает.</p>
+
+      <ul class="card-grid" role="list">
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">🌀</span>
+          <p>Сложно регулярно придумывать темы для постов</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">⏳</span>
+          <p>На один пост уходит час, а надо публиковать каждый день</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">❓</span>
+          <p>Не знаешь, что написать в шапке профиля</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">📅</span>
+          <p>Контент-плана нет — публикации хаотичны</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">🔍</span>
+          <p>Разобрать страницы конкурентов руками — долго и муторно</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">⚙️</span>
+          <p>На системный маркетинг просто не хватает времени</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= РЕШЕНИЕ ================= -->
+  <section class="solution" id="solution" aria-labelledby="solution-title">
+    <div class="container solution__inner">
+      <h2 id="solution-title">Один бот вместо десятка вкладок и фрилансеров</h2>
+      <p>Бот объединяет создание контента, аудит соцсетей и рекомендации по продвижению в одном чате в Telegram. Не нужно переключаться между сервисами, ждать ответа копирайтера или разбираться в аналитике самому — просто напишите, что нужно.</p>
+    </div>
+  </section>
+
+  <!-- ================= ВОЗМОЖНОСТИ: КОНТЕНТ ================= -->
+  <section class="content-features" id="content" aria-labelledby="content-title">
+    <div class="container">
+      <h2 id="content-title">Контент, который не нужно выжимать из себя</h2>
+      <p class="section-lead">От идеи до готового поста — за пару сообщений в чате.</p>
+
+      <ul class="feature-grid" role="list">
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">💡</span>
+          <h3>Идеи для постов</h3>
+          <p>Темы, которые заходят вашей аудитории</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">✍️</span>
+          <h3>Готовый пост</h3>
+          <p>Текст, который можно сразу публиковать</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🖼️</span>
+          <h3>Шапка профиля</h3>
+          <p>Варианты описания, которые цепляют</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🎣</span>
+          <h3>Хуки</h3>
+          <p>Первые строки, которые останавливают скролл</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🎬</span>
+          <h3>Сценарии сторис</h3>
+          <p>Пошаговая раскадровка</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">📱</span>
+          <h3>Идеи для Reels</h3>
+          <p>Форматы и сюжеты под тренды</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">📢</span>
+          <h3>Офферы для рекламы</h3>
+          <p>Тексты, которые продают</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">✅</span>
+          <h3>Исправление орфографии</h3>
+          <p>Грамотный текст без ошибок</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">📆</span>
+          <h3>Контент-план</h3>
+          <p>Расписание публикаций на неделю или месяц</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ВОЗМОЖНОСТИ: МАРКЕТИНГ И АНАЛИТИКА ================= -->
+  <section class="marketing-features" id="marketing" aria-labelledby="marketing-title">
+    <div class="container">
+      <h2 id="marketing-title">Маркетинг, который начинается с понимания, а не с угадывания</h2>
+      <p class="section-lead">Бот анализирует то, что у вас уже есть, и подсказывает, что делать дальше.</p>
+
+      <ul class="feature-grid" role="list">
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">📈</span>
+          <h3>Методы продвижения</h3>
+          <p>Рекомендации под конкретный бизнес</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🎯</span>
+          <h3>Анализ целевой аудитории</h3>
+          <p>Кто ваш клиент и что ему важно</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🏢</span>
+          <h3>Анализ бизнеса</h3>
+          <p>Сильные и слабые стороны со стороны</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🔵</span>
+          <h3>Аудит страницы VK</h3>
+          <p>Что улучшить в оформлении и контенте</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🟠</span>
+          <h3>Аудит магазина на Авито</h3>
+          <p>Как повысить доверие покупателей</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🟣</span>
+          <h3>Аудит страницы Instagram</h3>
+          <p>Рекомендации по профилю и контенту</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🕵️</span>
+          <h3>Анализ конкурентов</h3>
+          <p>Что они делают лучше и хуже вас</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">⚖️</span>
+          <h3>Сравнение сайта с конкурентами</h3>
+          <p>Наглядная разница между решениями</p>
+        </li>
+      </ul>
+
+      <p class="disclaimer">Рекомендации носят консультационный характер и не гарантируют конкретных финансовых или количественных результатов.</p>
+    </div>
+  </section>
+
+  <!-- ================= ВОЗМОЖНОСТИ: ИЗОБРАЖЕНИЯ ================= -->
+  <section class="images-feature" id="images" aria-labelledby="images-title">
+    <div class="container images-feature__inner">
+      <div class="images-feature__text">
+        <h2 id="images-title">Картинка за секунды — без дизайнера и Photoshop</h2>
+        <p>Опишите словами, что нужно — бот сгенерирует изображение под пост, сторис или рекламный баннер.</p>
+      </div>
+
+      <ul
+  class="screenshot-gallery"
+  role="list"
+  aria-label="Примеры работы ИИ-помощника"
+>
+  <li class="screenshot-gallery__item">
+    <button
+      class="screenshot-card"
+      type="button"
+      data-full-image="./images/bot-screen-1.png"
+      data-image-alt="Первый пример работы ИИ-помощника"
+      aria-label="Увеличить первый скриншот"
+    >
+      <img
+        src="./images/bot-screen-1.png"
+        alt="Первый пример работы ИИ-помощника"
+        loading="lazy"
+      >
+    </button>
+  </li>
+
+  <li class="screenshot-gallery__item">
+    <button
+      class="screenshot-card"
+      type="button"
+      data-full-image="./images/bot-screen-2.png"
+      data-image-alt="Второй пример работы ИИ-помощника"
+      aria-label="Увеличить второй скриншот"
+    >
+      <img
+        src="./images/bot-screen-2.png"
+        alt="Второй пример работы ИИ-помощника"
+        loading="lazy"
+      >
+    </button>
+  </li>
+
+  <li class="screenshot-gallery__item">
+    <button
+      class="screenshot-card"
+      type="button"
+      data-full-image="./images/bot-screen-3.png"
+      data-image-alt="Третий пример работы ИИ-помощника"
+      aria-label="Увеличить третий скриншот"
+    >
+      <img
+        src="./images/bot-screen-3.png"
+        alt="Третий пример работы ИИ-помощника"
+        loading="lazy"
+      >
+    </button>
+  </li>
+</ul>
+    </div>
+  </section>
+
+  <!-- ================= ДЛЯ КОГО ================= -->
+  <section class="audience" id="audience" aria-labelledby="audience-title">
+    <div class="container">
+      <h2 id="audience-title">Для тех, кто ведёт бизнес и соцсети сам</h2>
+
+      <ul class="audience__list" role="list">
+        <li class="audience__badge">Предприниматели</li>
+        <li class="audience__badge">Эксперты</li>
+        <li class="audience__badge">SMM-специалисты</li>
+        <li class="audience__badge">Маркетологи</li>
+        <li class="audience__badge">Блогеры</li>
+        <li class="audience__badge">Самозанятые</li>
+        <li class="audience__badge">Владельцы малого бизнеса</li>
+        <li class="audience__badge">Те, кто сам ведёт соцсети</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= КАК ЭТО РАБОТАЕТ ================= -->
+  <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+      <h2 id="how-title">Три шага до первого результата</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step__number" aria-hidden="true">1</span>
+          <h3>Откройте бота</h3>
+          <p>Нажмите кнопку и перейдите в Telegram</p>
+        </li>
+        <li class="step">
+          <span class="step__number" aria-hidden="true">2</span>
+          <h3>Опишите задачу</h3>
+          <p>«Напиши пост про…», «Проверь мой Instagram» и так далее</p>
+        </li>
+        <li class="step">
+          <span class="step__number" aria-hidden="true">3</span>
+          <h3>Получите результат</h3>
+          <p>Готовый текст, аудит или изображение за секунды</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= ПРИМЕРЫ ================= -->
+  <section class="examples" id="examples" aria-labelledby="examples-title">
+    <div class="container">
+      <h2 id="examples-title">Как это выглядит на практике</h2>
+
+      <ul class="examples__list" role="list">
+        <li class="example-card">
+          <p class="example-card__query"><span class="example-card__label">Запрос:</span> «Придумай 5 идей постов для кофейни»</p>
+          <p class="example-card__result"><span class="example-card__label">Результат:</span> список тем, готовых к публикации</p>
+        </li>
+        <li class="example-card">
+          <p class="example-card__query"><span class="example-card__label">Запрос:</span> «Сделай аудит моей страницы в Instagram»</p>
+          <p class="example-card__result"><span class="example-card__label">Результат:</span> структурированные рекомендации по профилю</p>
+        </li>
+        <li class="example-card">
+          <p class="example-card__query"><span class="example-card__label">Запрос:</span> «Нарисуй картинку: осенний уютный ноутбук с кофе»</p>
+          <p class="example-card__result"><span class="example-card__label">Результат:</span> сгенерированное изображение под пост</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ПРЕИМУЩЕСТВА ================= -->
+  <section class="benefits" id="benefits" aria-labelledby="benefits-title">
+    <div class="container">
+      <h2 id="benefits-title">Почему выбирают этого бота</h2>
+
+      <ul class="card-grid" role="list">
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">⚡</span>
+          <p><strong>Быстро</strong> — ответ за секунды, а не дни ожидания</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">🧠</span>
+          <p><strong>Понимает контекст</strong> — учитывает нишу и аудиторию</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">🧩</span>
+          <p><strong>Всё в одном месте</strong> — контент, аналитика, изображения</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">💬</span>
+          <p><strong>Просто как переписка</strong> — не нужно учиться работать с сервисом</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">📱</span>
+          <p><strong>Всегда под рукой</strong> — прямо в Telegram, без установки приложений</p>
+        </li>
+        <li class="card">
+          <span class="card__icon" aria-hidden="true">🔓</span>
+          <p><strong>Гибкость</strong> — от разовых задач до системной работы</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ТАРИФЫ ================= -->
+  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+    <div class="container pricing__inner">
+      <h2 id="pricing-title">Начните бесплатно, растите по мере роста бизнеса</h2>
+      <p>Актуальные тарифы и лимиты — в самом боте, там же можно попробовать бесплатно.</p>
+      <a href="https://t.me/smm_platform_sam_bot?start=cmd_run_3318292060"
+         class="btn btn--primary btn--large js-open-bot"
+         aria-label="Посмотреть тарифы в боте"
+         target="_blank"
+         rel="noopener noreferrer">
+        Посмотреть тарифы в боте →
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title">Остались вопросы?</h2>
+
+      <div class="faq__list">
+        <details class="faq-item">
+          <summary>Это бесплатно?</summary>
+          <p>Начать пользоваться ботом можно бесплатно. Подробные условия и лимиты — в самом боте.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Нужно ли устанавливать что-то отдельно?</summary>
+          <p>Нет, достаточно приложения Telegram — отдельная установка не требуется.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Мои данные и переписка в безопасности?</summary>
+          <p>Переписка с ботом происходит в вашем аккаунте Telegram. Подробности — в политике конфиденциальности.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Бот заменяет SMM-специалиста?</summary>
+          <p>Бот помогает ускорить создание контента и получить рекомендации, но решение о стратегии остаётся за вами.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Можно ли пользоваться с телефона?</summary>
+          <p>Да, бот работает в приложении Telegram на телефоне, планшете и компьютере.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Как отменить платную подписку (если есть)?</summary>
+          <p>Управление подпиской доступно внутри бота в разделе тарифов.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Что делать, если бот не отвечает?</summary>
+          <p>Попробуйте написать сообщение ещё раз через несколько секунд. Если проблема повторяется, напишите нам: support.marketolog.sam@gmail.com.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ФИНАЛЬНЫЙ CTA ================= -->
+  <section class="cta-final" id="cta-final" aria-labelledby="cta-final-title">
+    <div class="container cta-final__inner">
+      <h2 id="cta-final-title">Хватит откладывать контент-план на завтра</h2>
+      <p>Откройте бота и получите первую идею для поста прямо сейчас.</p>
+
+      <div class="hero__actions">
+        <a href="https://t.me/smm_platform_sam_bot?start=landing"
+           class="btn btn--primary btn--large js-open-bot"
+           aria-label="Открыть бота в Telegram"
+           target="_blank"
+           rel="noopener noreferrer">
+          Открыть бота в Telegram →
+        </a>
+           <a href="VK_COMMUNITY_URL"
+           class="link-secondary js-vk-fallback is-hidden"
+           aria-label="Продолжить во ВКонтакте"
+           rel="noopener">
+          Продолжить во ВКонтакте
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer" id="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#top" class="logo" aria-label="ИИ-помощник — на главную">
+        <span class="logo__icon" aria-hidden="true">🤖</span>
+        <span class="logo__text">ИИ-Помощник</span>
+      </a>
+      <p>ИИ-помощник по контенту и маркетингу в Telegram.</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Навигация по разделам сайта">
+      <h3 class="footer__heading">Разделы</h3>
+      <ul>
+        <li><a href="#content">Возможности</a></li>
+        <li><a href="#how-it-works">Как работает</a></li>
+        <li><a href="#pricing">Тарифы</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer__nav" aria-label="Документы">
+      <h3 class="footer__heading">Документы</h3>
+      <ul>
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+        <li><a href="offer.html">Публичная оферта</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__contacts">
+      <h3 class="footer__heading">Контакты и соцсети</h3>
+     <ul class="footer__social">
+        <li class="is-hidden"><a href="VK_COMMUNITY_URL" rel="noopener" aria-label="Сообщество ВКонтакте">ВКонтакте</a></li>
+        <li><a href="https://t.me/smm_platform_sam_bot" rel="noopener" aria-label="Telegram-бот">Telegram</a></li>
+        <li><a href="mailto:support.marketolog.sam@gmail.com" aria-label="Написать на почту поддержки">support.marketolog.sam@gmail.com</a></li>      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© 2026 ИИ-Помощник. Все права защищены.</p>
+  </div>
+</footer>
+
+<div
+  class="screenshot-lightbox"
+  id="screenshot-lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Увеличенный скриншот"
+  hidden
+>
+  <button
+    class="screenshot-lightbox__backdrop"
+    type="button"
+    aria-label="Закрыть увеличенный скриншот"
+    data-lightbox-close
+  ></button>
+
+  <div class="screenshot-lightbox__content">
+    <button
+      class="screenshot-lightbox__close"
+      type="button"
+      aria-label="Закрыть"
+      data-lightbox-close
+    >
+      ×
+    </button>
+
+    <img
+      class="screenshot-lightbox__image"
+      src=""
+      alt=""
+    >
+  </div>
+</div>
+
+<!-- Уведомление о cookie и аналитике (152-ФЗ) -->
+<div
+  class="cookie-banner"
+  id="cookieBanner"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Уведомление об использовании cookie"
+  hidden
+>
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">
+      Мы используем файлы cookie и сервисы аналитики (Яндекс.Метрика, VK Пиксель), чтобы сайт работал корректно и мы понимали, что стоит улучшить. Продолжая пользоваться сайтом, вы соглашаетесь с этим — подробнее в
+      <a href="privacy.html">политике конфиденциальности</a>.
+    </p>
+    <button type="button" class="btn btn--primary cookie-banner__button" id="cookieAccept">
+      Хорошо, понятно
+    </button>
+  </div>
+</div>
+
+<!-- Яндекс.Метрика и VK Пиксель подключаются в script.js только после согласия — см. initCookieConsent() -->
+ 
+<script src="script.js"></script>
+</body>
+</html>

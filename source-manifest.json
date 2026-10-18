@@ -1,0 +1,132 @@
+{
+  "captured_at": "2026-10-18T11:39:22.888769+00:00",
+  "site": "https://marketolog-sam.ru/",
+  "scope": "Publicly served HTML/CSS/JS, referenced public assets, Google Fonts and public bot avatar; not server code",
+  "missing_source_assets": [
+    "images/og-cover.jpg",
+    "robots.txt",
+    "sitemap.xml"
+  ],
+  "files": [
+    {
+      "url": "https://marketolog-sam.ru/images/bot-screen-1.png",
+      "path": "original/images/bot-screen-1.png",
+      "sha256": "8935ca080ad6d7658a3143f1245f01c4e1b0e2b4b43290e151be1c430a7cc24a",
+      "bytes": 4797669
+    },
+    {
+      "url": "https://marketolog-sam.ru/images/bot-screen-2.png",
+      "path": "original/images/bot-screen-2.png",
+      "sha256": "3a4c68399c99328541c089510d1e1a1d02bfcc98647d273c619268bf0c338ae7",
+      "bytes": 2963998
+    },
+    {
+      "url": "https://marketolog-sam.ru/images/bot-screen-3.png",
+      "path": "original/images/bot-screen-3.png",
+      "sha256": "a802f29cbd52da210e86266a0353b38a8a3928cd94042e3590f7235ae9dbcf68",
+      "bytes": 845271
+    },
+    {
+      "url": "https://marketolog-sam.ru/images/favicon-16.png",
+      "path": "original/images/favicon-16.png",
+      "sha256": "e5395964eb0aa61baec8ea89ffb8cc82a6087e35f8fc56c94887f77d4d12233d",
+      "bytes": 1487612
+    },
+    {
+      "url": "https://marketolog-sam.ru/images/favicon-32.png",
+      "path": "original/images/favicon-32.png",
+      "sha256": "e5395964eb0aa61baec8ea89ffb8cc82a6087e35f8fc56c94887f77d4d12233d",
+      "bytes": 1487612
+    },
+    {
+      "url": "https://marketolog-sam.ru/images/favicon-apple-touch.png",
+      "path": "original/images/favicon-apple-touch.png",
+      "sha256": "e5395964eb0aa61baec8ea89ffb8cc82a6087e35f8fc56c94887f77d4d12233d",
+      "bytes": 1487612
+    },
+    {
+      "url": "https://marketolog-sam.ru/",
+      "path": "original/index.html",
+      "sha256": "1c682b4515d7359289da5202d7d67115a219fc9fff7f1b783e3b0a8c057d95b0",
+      "bytes": 30647
+    },
+    {
+      "url": "https://marketolog-sam.ru/offer.html",
+      "path": "original/offer.html",
+      "sha256": "569d6ab80ede59db81edc670bbb54ea2a7ed595ecb71757e2f712807702a0154",
+      "bytes": 19858
+    },
+    {
+      "url": "https://marketolog-sam.ru/privacy.html",
+      "path": "original/privacy.html",
+      "sha256": "90e50ad609e53b75f4249bc4e15d4b6416e009a8b7bd9254b5e164ea9b443733",
+      "bytes": 16524
+    },
+    {
+      "url": "https://marketolog-sam.ru/script.js",
+      "path": "original/script.js",
+      "sha256": "a66971a181a9d9460aca8851a63855ee010641324b0ea08138475d203640d461",
+      "bytes": 13003
+    },
+    {
+      "url": "https://marketolog-sam.ru/styles.css",
+      "path": "original/styles.css",
+      "sha256": "32aaab74ad133e45553ba1adb79015c3ae0869fd611b480b0f175af3ac71fbac",
+      "bytes": 25972
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap",
+      "path": "original/fonts/google-fonts-original.css",
+      "sha256": "6d02e6af37a1baeb38ecc8e8425507dff4a593f0d3749ddc3633745a0c5cef02",
+      "bytes": 1540
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FO_F.ttf",
+      "path": "original/fonts/font-1.ttf",
+      "sha256": "a13d9b41b0a471ce58f0e46d377fa3cc76615e4632c3b15eb397caadf7a13f0a",
+      "bytes": 94972
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk7PFO_F.ttf",
+      "path": "original/fonts/font-2.ttf",
+      "sha256": "f433e5d333be1128d8ec8a28b8aadd0314d10e14e4105406076666bc830fc15d",
+      "bytes": 95060
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk4jE-_F.ttf",
+      "path": "original/fonts/font-3.ttf",
+      "sha256": "6bad1a774228464cc88b8b0271555b266f7a3c64a7bedf15e165fdab4f6ac0ce",
+      "bytes": 95096
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk4aE-_F.ttf",
+      "path": "original/fonts/font-4.ttf",
+      "sha256": "b9584e099e0e7f1e1e914c3037aabb9010c50346a3ce8df5eeeeecc0563044d8",
+      "bytes": 94928
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59E-_F.ttf",
+      "path": "original/fonts/font-5.ttf",
+      "sha256": "b8f802f05b322a7345805f5b89f8bb976604cc719a91530918d5ce3c47160950",
+      "bytes": 95688
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/unbounded/v12/Yq6F-LOTXCb04q32xlpat-6uR42XTqtG68b2040.ttf",
+      "path": "original/fonts/font-6.ttf",
+      "sha256": "5d85f700bcc2a4be1b69c30c6d00c57f0d3848a505aceaaa1a22ba61ebc5b394",
+      "bytes": 348108
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/unbounded/v12/Yq6F-LOTXCb04q32xlpat-6uR42XTqtG6__2040.ttf",
+      "path": "original/fonts/font-7.ttf",
+      "sha256": "0587b7ea8407976e5feda03dcba410dde297fa203ae115eb1098d64186efef5c",
+      "bytes": 349248
+    },
+    {
+      "url": "https://cdn4.telesco.pe/file/mVGHCJDGQnPEYXu5nNkWxG0oC6ZtalRCpWyrECoSy8vTDhl9MJnP0Avf5ePJmrp6Puc6iAuXLcZCGrN2jEGH9i3e6H7h6P6ZRd-l6NeU9nD1QSIV2u8xljVn-z7WTXAxq4AMT2e2eMXG9VTqNHDp0QBH4Qr_GDWJtTQPrLQSPb3h4dhH2uaAAfy-BJ0F19essZ5Q_RQKNMfThdsb4gnxx-pid3FczqXoagxopBik5KIvH0UIE2BrCvIBwJJ3xxOethy_hsKpbuA1LRfg_ObQFd9W-kwmJ6MYcf1_6YKzdV_viqLr4lGYpwemfb_PkiIduwRRuWwAqhgMpMNfcHoNZw.jpg",
+      "path": "original/images/sam-avatar.jpg",
+      "sha256": "7a7b85d2b916abb6b3c6b444f6bf323eca12a8a078510718f2cb9e752b74347c",
+      "bytes": 27890
+    }
+  ]
+}
