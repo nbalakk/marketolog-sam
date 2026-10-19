@@ -1,0 +1,95 @@
+{
+  "origin": "User-provided sam-motion Remotion project, final exports. Draft exports not used.",
+  "files": [
+    {
+      "file": "dist/frontend-design/motion/sam-desktop.webm",
+      "bytes": 1096900,
+      "sha256": "2c6c4174fb8da4dd1a5cf1ac07450197cf890f876089efe6b59f89fcc6b1162d"
+    },
+    {
+      "file": "dist/frontend-design/motion/sam-desktop.mp4",
+      "bytes": 1337770,
+      "sha256": "f40c384ac9946686d504058240df0e47f7052d5b5a51452a8969fee8600cea61"
+    },
+    {
+      "file": "dist/frontend-design/motion/sam-mobile.webm",
+      "bytes": 1192487,
+      "sha256": "61e6b4fbf29b04dfbe983c8941447595d00b1402f399a4259f79b122f3bcb104"
+    },
+    {
+      "file": "dist/frontend-design/motion/sam-mobile.mp4",
+      "bytes": 1474653,
+      "sha256": "7e149f73d4758be8ac9976258c29b9b0e1d2a39bbd6d829a743f713e26360102"
+    },
+    {
+      "file": "dist/frontend-design/motion/poster-desktop.png",
+      "bytes": 181053,
+      "sha256": "eddbfcb397f5f309494e15f8f833f448e8921096b74ae2a201c4c530706bc5ff"
+    },
+    {
+      "file": "dist/frontend-design/motion/poster-mobile.png",
+      "bytes": 200062,
+      "sha256": "ae40ab354405ff4dc639e3b0dd79a6cb7a011d25d20e1e2ddf596bf5b0af2ed9"
+    }
+  ],
+  "sourceEdited": false,
+  "integration": "Responsive single-format loading, WebM with H264 MP4 fallback, once-per-visit silent playback with pause/replay, viewport and visibility pausing, static poster until explicit play for reduced motion or data saving.",
+  "sourceVerification": [
+    {
+      "file": "out/sam-desktop.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "frames": "450",
+      "duration": "15.000000",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "bytes": 1337770,
+      "audio": false,
+      "faststart": true,
+      "decodedWithoutErrors": true
+    },
+    {
+      "file": "out/sam-desktop.webm",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "frames": "450",
+      "duration": "15.000000",
+      "codec": "vp9",
+      "pixelFormat": "yuv420p",
+      "bytes": 1096900,
+      "audio": false,
+      "faststart": null,
+      "decodedWithoutErrors": true
+    },
+    {
+      "file": "out/sam-mobile.mp4",
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "frames": "450",
+      "duration": "15.000000",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "bytes": 1474653,
+      "audio": false,
+      "faststart": true,
+      "decodedWithoutErrors": true
+    },
+    {
+      "file": "out/sam-mobile.webm",
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "frames": "450",
+      "duration": "15.000000",
+      "codec": "vp9",
+      "pixelFormat": "yuv420p",
+      "bytes": 1192487,
+      "audio": false,
+      "faststart": null,
+      "decodedWithoutErrors": true
+    }
+  ]
+}

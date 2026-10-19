@@ -41,19 +41,15 @@
       "passed": true
     },
     {
-      "name": "Hero has contextual image",
+      "name": "Responsive motion stage exists",
       "passed": true
     },
     {
-      "name": "Hero photo labelled generated",
+      "name": "Prepared video provenance visible",
       "passed": true
     },
     {
-      "name": "Three source facts",
-      "passed": true
-    },
-    {
-      "name": "Prepared hero result starts hidden",
+      "name": "Reduced motion initially leaves video unloaded",
       "passed": true
     },
     {
@@ -81,23 +77,11 @@
       "passed": true
     },
     {
-      "name": "320px assembled result opens",
+      "name": "320px correct poster format",
       "passed": true
     },
     {
-      "name": "320px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "320px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "320px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "320px assembly resets",
+      "name": "320px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -165,23 +149,11 @@
       "passed": true
     },
     {
-      "name": "360px assembled result opens",
+      "name": "360px correct poster format",
       "passed": true
     },
     {
-      "name": "360px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "360px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "360px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "360px assembly resets",
+      "name": "360px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -249,23 +221,11 @@
       "passed": true
     },
     {
-      "name": "390px assembled result opens",
+      "name": "390px correct poster format",
       "passed": true
     },
     {
-      "name": "390px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "390px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "390px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "390px assembly resets",
+      "name": "390px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -333,23 +293,11 @@
       "passed": true
     },
     {
-      "name": "457px assembled result opens",
+      "name": "457px correct poster format",
       "passed": true
     },
     {
-      "name": "457px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "457px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "457px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "457px assembly resets",
+      "name": "457px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -417,23 +365,11 @@
       "passed": true
     },
     {
-      "name": "768px assembled result opens",
+      "name": "768px correct poster format",
       "passed": true
     },
     {
-      "name": "768px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "768px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "768px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "768px assembly resets",
+      "name": "768px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -501,23 +437,11 @@
       "passed": true
     },
     {
-      "name": "1024px assembled result opens",
+      "name": "1024px correct poster format",
       "passed": true
     },
     {
-      "name": "1024px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "1024px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "1024px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "1024px assembly resets",
+      "name": "1024px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -585,23 +509,11 @@
       "passed": true
     },
     {
-      "name": "1280px assembled result opens",
+      "name": "1280px correct poster format",
       "passed": true
     },
     {
-      "name": "1280px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "1280px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "1280px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "1280px assembly resets",
+      "name": "1280px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -669,23 +581,11 @@
       "passed": true
     },
     {
-      "name": "1422px assembled result opens",
+      "name": "1422px correct poster format",
       "passed": true
     },
     {
-      "name": "1422px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "1422px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "1422px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "1422px assembly resets",
+      "name": "1422px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -753,23 +653,11 @@
       "passed": true
     },
     {
-      "name": "1440px assembled result opens",
+      "name": "1440px correct poster format",
       "passed": true
     },
     {
-      "name": "1440px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "1440px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "1440px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "1440px assembly resets",
+      "name": "1440px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -837,23 +725,11 @@
       "passed": true
     },
     {
-      "name": "1600px assembled result opens",
+      "name": "1600px correct poster format",
       "passed": true
     },
     {
-      "name": "1600px all source meanings appear",
-      "passed": true
-    },
-    {
-      "name": "1600px assembled fits",
-      "passed": true
-    },
-    {
-      "name": "1600px source facts stay clear",
-      "passed": true
-    },
-    {
-      "name": "1600px assembly resets",
+      "name": "1600px reduced motion does not fetch film",
       "passed": true
     },
     {
@@ -1021,11 +897,11 @@
       "passed": true
     },
     {
-      "name": "Reduced motion has no active animations",
+      "name": "Valid Telegram destination",
       "passed": true
     },
     {
-      "name": "Authored entrance runs",
+      "name": "Reduced motion has no active animations",
       "passed": true
     },
     {
@@ -1034,30 +910,6 @@
     },
     {
       "name": "Live motion preference stops animation",
-      "passed": true
-    },
-    {
-      "name": "Source fragments animate",
-      "passed": true
-    },
-    {
-      "name": "Source fragments actually move",
-      "passed": true
-    },
-    {
-      "name": "Flying fragments removed after arrival",
-      "passed": true
-    },
-    {
-      "name": "Rapid reset hides result",
-      "passed": true
-    },
-    {
-      "name": "Rapid reset leaves no fragments",
-      "passed": true
-    },
-    {
-      "name": "Reduced motion assembles immediately",
       "passed": true
     },
     {
@@ -1075,52 +927,52 @@
     {
       "width": 320,
       "height": 800,
-      "documentHeight": 6775
+      "documentHeight": 6572
     },
     {
       "width": 360,
       "height": 800,
-      "documentHeight": 6241
+      "documentHeight": 6102
     },
     {
       "width": 390,
       "height": 844,
-      "documentHeight": 6125
+      "documentHeight": 6058
     },
     {
       "width": 457,
       "height": 572,
-      "documentHeight": 5751
+      "documentHeight": 5833
     },
     {
       "width": 768,
       "height": 1024,
-      "documentHeight": 4970
+      "documentHeight": 4934
     },
     {
       "width": 1024,
       "height": 900,
-      "documentHeight": 4610
+      "documentHeight": 4753
     },
     {
       "width": 1280,
       "height": 1000,
-      "documentHeight": 4336
+      "documentHeight": 4586
     },
     {
       "width": 1422,
       "height": 1106,
-      "documentHeight": 4336
+      "documentHeight": 4657
     },
     {
       "width": 1440,
       "height": 1120,
-      "documentHeight": 4337
+      "documentHeight": 4667
     },
     {
       "width": 1600,
       "height": 1200,
-      "documentHeight": 4367
+      "documentHeight": 4685
     }
   ]
 }

@@ -46,5 +46,20 @@
     "motion": "One photo entrance, user-triggered source fragments move toward matching editorial phrases; reset and rapid clicks supported; reduced motion immediate.",
     "truth": "Fictional ceramics brand. Photo labelled generated, editorial text labelled prepared and not an actual bot answer.",
     "scope": "Update experimental /frontend-design/ only; main mint entry and legal documents remain unchanged."
+  },
+  "motionIntegration": {
+    "intent": "User provided final desktop/mobile films and read access to their Remotion source project.",
+    "layout": "Entire authored composition becomes first viewport; actual navigation and Telegram action stay in HTML, not inside video.",
+    "sourceProjectEdited": false,
+    "selectedFiles": [
+      "sam-desktop.webm",
+      "sam-desktop.mp4",
+      "sam-mobile.webm",
+      "sam-mobile.mp4",
+      "poster-desktop.png",
+      "poster-mobile.png"
+    ],
+    "playback": "Muted once when visible, if motion and data preferences allow; manual pause/replay, static responsive poster and transcript otherwise.",
+    "originalScene": "Prior photo assembly retired from hero; existing interactive text examples retained below."
   }
 }

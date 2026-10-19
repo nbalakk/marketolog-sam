@@ -1,0 +1,181 @@
+{
+  "checks": [
+    {
+      "name": "Unchanged user export: dist/frontend-design/motion/sam-desktop.webm",
+      "passed": true
+    },
+    {
+      "name": "Unchanged user export: dist/frontend-design/motion/sam-desktop.mp4",
+      "passed": true
+    },
+    {
+      "name": "Unchanged user export: dist/frontend-design/motion/sam-mobile.webm",
+      "passed": true
+    },
+    {
+      "name": "Unchanged user export: dist/frontend-design/motion/sam-mobile.mp4",
+      "passed": true
+    },
+    {
+      "name": "Unchanged user export: dist/frontend-design/motion/poster-desktop.png",
+      "passed": true
+    },
+    {
+      "name": "Unchanged user export: dist/frontend-design/motion/poster-mobile.png",
+      "passed": true
+    },
+    {
+      "name": "desktop actual video decoded",
+      "passed": true
+    },
+    {
+      "name": "desktop 15 second duration",
+      "passed": true
+    },
+    {
+      "name": "desktop silent inline playback",
+      "passed": true
+    },
+    {
+      "name": "desktop no opposite video loaded",
+      "passed": true
+    },
+    {
+      "name": "desktop source aspect preserved",
+      "passed": true
+    },
+    {
+      "name": "desktop user can pause",
+      "passed": true
+    },
+    {
+      "name": "desktop manual pause persists after scroll",
+      "passed": true
+    },
+    {
+      "name": "desktop pauses outside viewport",
+      "passed": true
+    },
+    {
+      "name": "desktop live reduced motion stops film",
+      "passed": true
+    },
+    {
+      "name": "desktop explicit play allowed with reduced motion",
+      "passed": true
+    },
+    {
+      "name": "desktop once only with stable poster at end",
+      "passed": true
+    },
+    {
+      "name": "desktop replay restarts",
+      "passed": true
+    },
+    {
+      "name": "mobile actual video decoded",
+      "passed": true
+    },
+    {
+      "name": "mobile 15 second duration",
+      "passed": true
+    },
+    {
+      "name": "mobile silent inline playback",
+      "passed": true
+    },
+    {
+      "name": "mobile no opposite video loaded",
+      "passed": true
+    },
+    {
+      "name": "mobile source aspect preserved",
+      "passed": true
+    },
+    {
+      "name": "mobile user can pause",
+      "passed": true
+    },
+    {
+      "name": "mobile manual pause persists after scroll",
+      "passed": true
+    },
+    {
+      "name": "mobile pauses outside viewport",
+      "passed": true
+    },
+    {
+      "name": "mobile live reduced motion stops film",
+      "passed": true
+    },
+    {
+      "name": "mobile explicit play allowed with reduced motion",
+      "passed": true
+    },
+    {
+      "name": "mobile once only with stable poster at end",
+      "passed": true
+    },
+    {
+      "name": "mobile replay restarts",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion loads no video bytes",
+      "passed": true
+    },
+    {
+      "name": "Mobile Telegram action visible before playing",
+      "passed": true
+    },
+    {
+      "name": "Accessible written story opens",
+      "passed": true
+    },
+    {
+      "name": "Resize under reduced motion still avoids media downloads",
+      "passed": true
+    },
+    {
+      "name": "Resize chooses new requested format",
+      "passed": true
+    },
+    {
+      "name": "H264 fallback actually decodes",
+      "passed": true
+    },
+    {
+      "name": "H264 fallback never requests unsupported WebM",
+      "passed": true
+    },
+    {
+      "name": "Data saving avoids auto download",
+      "passed": true
+    },
+    {
+      "name": "Data saving permits intentional play",
+      "passed": true
+    },
+    {
+      "name": "Blocked autoplay leaves working play control",
+      "passed": true
+    },
+    {
+      "name": "Gesture recovers blocked autoplay",
+      "passed": true
+    },
+    {
+      "name": "Failed video leaves poster and direct link",
+      "passed": true
+    },
+    {
+      "name": "Without JS poster and real Telegram action remain",
+      "passed": true
+    },
+    {
+      "name": "No video-player script errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

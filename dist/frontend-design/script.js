@@ -69,36 +69,6 @@ tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>{example=tab.dataset.exa
 document.querySelectorAll('[data-show-example]').forEach(button=>button.addEventListener('click',()=>{example=button.dataset.showExample;render();document.getElementById('examples').scrollIntoView({block:'start',behavior:reduced.matches?'auto':'smooth'});tabs.find(t=>t.dataset.example===example).focus({preventScroll:true})}));
 document.getElementById('copy-prompt')?.addEventListener('click',async()=>{const text=currentPrompt();const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText(text);status.textContent='Скопировано. Вставьте запрос в чат с Сэмом.'}catch{status.textContent='Не удалось скопировать автоматически. Выделите запрос выше и скопируйте его.';const range=document.createRange();range.selectNodeContents(document.getElementById('demo-prompt'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range)}});
 
-// This interaction composes a prepared editorial example; it never calls an AI service.
-const assembleButton=document.getElementById('assemble-post');
-const scene=document.getElementById('brief-scene');
-const assembledPost=document.getElementById('assembled-post');
-const flights=new Set();
-let assembled=false;
-function clearFlights(){for(const flight of flights){flight.getAnimations().forEach(a=>a.cancel());flight.remove()}flights.clear()}
-assembleButton?.addEventListener('click',()=>{
- clearFlights();assembled=!assembled;
- assembleButton.setAttribute('aria-expanded',String(assembled));
- assembleButton.textContent=assembled?'Разобрать пост':'Собрать пост';
- scene.classList.toggle('is-assembled',assembled);
- assembledPost.hidden=!assembled;
- document.getElementById('assembly-status').textContent=assembled?'Показан подготовленный пример. Цвет связывает детали запроса с фразами поста.':'Пример разобран. Снова видны исходные детали и предметный кадр.';
- if(!assembled)return;
- animateElement(assembledPost,[{opacity:.35,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:520,delay:140,fill:'backwards'});
- if(!reduced.matches){
-  [...scene.querySelectorAll('.source-facts [data-source]')].forEach((source,index)=>{
-   const target=assembledPost.querySelector('mark[data-source="'+source.dataset.source+'"]');
-   const from=source.getBoundingClientRect(),to=target.getBoundingClientRect();
-   const flight=source.cloneNode(true);flight.classList.add('source-flight');flight.setAttribute('aria-hidden','true');flight.removeAttribute('data-source');
-   Object.assign(flight.style,{left:from.left+'px',top:from.top+'px',width:from.width+'px',minHeight:from.height+'px'});
-   document.body.append(flight);flights.add(flight);
-   const animation=flight.animate([{transform:'translate(0,0) scale(1)',opacity:.95},{transform:'translate('+(to.left-from.left)+'px,'+(to.top-from.top)+'px) scale(.55)',opacity:0}],{duration:560,delay:index*65,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'});
-   animation.finished.catch(()=>{}).finally(()=>{flight.remove();flights.delete(flight)});
-  });
- }
-});
-if(!reduced.matches){(document.fonts?.ready||Promise.resolve()).then(()=>requestAnimationFrame(()=>{animateElement(document.querySelector('.scene-photo>img'),[{opacity:.7,clipPath:'inset(2% 0 2% 0 round 19px)'},{opacity:1,clipPath:'inset(0 0 0 0 round 19px)'}],{duration:660})}))}
-
 // Animate the real details element so native links and keyboard behavior remain intact.
 const detailsTargets = new WeakMap();
 document.querySelectorAll('.faq-item').forEach(details => {
