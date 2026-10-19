@@ -39,11 +39,26 @@ try:
   check('One main and one H1',page.locator('main').count()==1 and page.locator('h1').count()==1)
   check('Golos font loaded',page.evaluate("document.fonts.check('600 88px Golos')"))
   check('Three simple demo tabs',page.get_by_role('tab').count()==3 and page.locator('[data-stage]').count()==0)
+  check('Hero has contextual image',page.locator('#ceramics-scene').evaluate('e=>e.complete&&e.naturalWidth>0'))
+  check('Hero photo labelled generated',page.locator('.scene-photo figcaption').inner_text().find('создан ИИ')>=0)
+  check('Three source facts',page.locator('.source-facts [data-source]').count()==3)
+  check('Prepared hero result starts hidden',not page.locator('#assembled-post').is_visible())
+
   direction=json.loads((ROOT/'qa/fixtures/frontend-direction.json').read_text(encoding='utf-8'))
   for name,digest in direction['mainBaseline'].items():check('Main version preserved: '+name,hashlib.sha256((D/name).read_bytes()).hexdigest()==digest)
 
   for width,height in [(320,800),(360,800),(390,844),(457,572),(768,1024),(1024,900),(1280,1000),(1422,1106),(1440,1120),(1600,1200)]:
    page.set_viewport_size({'width':width,'height':height});page.goto(base,wait_until='networkidle');page.evaluate('document.fonts.ready')
+
+   page.locator('#assemble-post').click()
+   check(f'{width}px assembled result opens',page.locator('#assemble-post').get_attribute('aria-expanded')=='true' and page.locator('#assembled-post').is_visible())
+   check(f'{width}px all source meanings appear',page.locator('#assembled-post mark[data-source]').count()==3)
+   check(f'{width}px assembled fits',page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'))
+   check(f'{width}px source facts stay clear',page.evaluate("document.querySelector('#assembled-post').getBoundingClientRect().top>=document.querySelector('.source-facts').getBoundingClientRect().bottom-2"))
+   if width in [390,1440]:
+    page.evaluate('scrollTo(0,0)');page.screenshot(path=str(OUT/f'assembled-{width}.png'))
+   page.locator('#assemble-post').click()
+   check(f'{width}px assembly resets',not page.locator('#assembled-post').is_visible())
    for example in ['post','plan','audit']:
     page.locator('#tab-'+example).click()
     check(f'{width}px {example} no horizontal overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'))
@@ -94,6 +109,17 @@ try:
   mp.locator('#tab-plan').click();check('Tab change animates',mp.evaluate('document.getAnimations().some(a=>a.playState==="running")'))
   mp.evaluate("""()=>{window.motionPreferenceResult=new Promise(resolve=>{matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',()=>queueMicrotask(()=>resolve(document.getAnimations().filter(a=>a.playState==='running').length)),{once:true})})}""")
   mp.emulate_media(reduced_motion='reduce');check('Live motion preference stops animation',mp.evaluate('window.motionPreferenceResult')==0)
+
+  mp.emulate_media(reduced_motion='no-preference');mp.wait_for_timeout(50)
+  mp.locator('#assemble-post').click();mp.wait_for_timeout(180)
+  check('Source fragments animate',mp.locator('.source-flight').count()>0)
+  check('Source fragments actually move',mp.evaluate("[...document.querySelectorAll('.source-flight')].some(e=>getComputedStyle(e).transform!=='none')"))
+  mp.wait_for_timeout(700);check('Flying fragments removed after arrival',mp.locator('.source-flight').count()==0)
+  mp.locator('#assemble-post').click();mp.locator('#assemble-post').click();mp.locator('#assemble-post').click()
+  check('Rapid reset hides result',not mp.locator('#assembled-post').is_visible())
+  check('Rapid reset leaves no fragments',mp.locator('.source-flight').count()==0)
+  mp.emulate_media(reduced_motion='reduce');mp.wait_for_timeout(80);mp.locator('#assemble-post').click()
+  check('Reduced motion assembles immediately',mp.locator('#assembled-post').is_visible() and mp.locator('.source-flight').count()==0)
   check('No script errors',not results['errors']);check('No failed local resources',not results['failedResources'])
   browser.close()
 finally:

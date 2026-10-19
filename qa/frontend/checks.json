@@ -41,6 +41,22 @@
       "passed": true
     },
     {
+      "name": "Hero has contextual image",
+      "passed": true
+    },
+    {
+      "name": "Hero photo labelled generated",
+      "passed": true
+    },
+    {
+      "name": "Three source facts",
+      "passed": true
+    },
+    {
+      "name": "Prepared hero result starts hidden",
+      "passed": true
+    },
+    {
       "name": "Main version preserved: index.html",
       "passed": true
     },
@@ -62,6 +78,26 @@
     },
     {
       "name": "Main version preserved: site-config.js",
+      "passed": true
+    },
+    {
+      "name": "320px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "320px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "320px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "320px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "320px assembly resets",
       "passed": true
     },
     {
@@ -129,6 +165,26 @@
       "passed": true
     },
     {
+      "name": "360px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "360px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "360px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "360px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "360px assembly resets",
+      "passed": true
+    },
+    {
       "name": "360px post no horizontal overflow",
       "passed": true
     },
@@ -190,6 +246,26 @@
     },
     {
       "name": "360px no broken images",
+      "passed": true
+    },
+    {
+      "name": "390px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "390px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "390px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "390px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "390px assembly resets",
       "passed": true
     },
     {
@@ -257,6 +333,26 @@
       "passed": true
     },
     {
+      "name": "457px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "457px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "457px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "457px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "457px assembly resets",
+      "passed": true
+    },
+    {
       "name": "457px post no horizontal overflow",
       "passed": true
     },
@@ -318,6 +414,26 @@
     },
     {
       "name": "457px no broken images",
+      "passed": true
+    },
+    {
+      "name": "768px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "768px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "768px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "768px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "768px assembly resets",
       "passed": true
     },
     {
@@ -385,6 +501,26 @@
       "passed": true
     },
     {
+      "name": "1024px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "1024px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "1024px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "1024px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "1024px assembly resets",
+      "passed": true
+    },
+    {
       "name": "1024px post no horizontal overflow",
       "passed": true
     },
@@ -446,6 +582,26 @@
     },
     {
       "name": "1024px no broken images",
+      "passed": true
+    },
+    {
+      "name": "1280px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "1280px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "1280px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "1280px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "1280px assembly resets",
       "passed": true
     },
     {
@@ -513,6 +669,26 @@
       "passed": true
     },
     {
+      "name": "1422px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "1422px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "1422px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "1422px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "1422px assembly resets",
+      "passed": true
+    },
+    {
       "name": "1422px post no horizontal overflow",
       "passed": true
     },
@@ -577,6 +753,26 @@
       "passed": true
     },
     {
+      "name": "1440px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "1440px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "1440px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "1440px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "1440px assembly resets",
+      "passed": true
+    },
+    {
       "name": "1440px post no horizontal overflow",
       "passed": true
     },
@@ -638,6 +834,26 @@
     },
     {
       "name": "1440px no broken images",
+      "passed": true
+    },
+    {
+      "name": "1600px assembled result opens",
+      "passed": true
+    },
+    {
+      "name": "1600px all source meanings appear",
+      "passed": true
+    },
+    {
+      "name": "1600px assembled fits",
+      "passed": true
+    },
+    {
+      "name": "1600px source facts stay clear",
+      "passed": true
+    },
+    {
+      "name": "1600px assembly resets",
       "passed": true
     },
     {
@@ -821,6 +1037,30 @@
       "passed": true
     },
     {
+      "name": "Source fragments animate",
+      "passed": true
+    },
+    {
+      "name": "Source fragments actually move",
+      "passed": true
+    },
+    {
+      "name": "Flying fragments removed after arrival",
+      "passed": true
+    },
+    {
+      "name": "Rapid reset hides result",
+      "passed": true
+    },
+    {
+      "name": "Rapid reset leaves no fragments",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion assembles immediately",
+      "passed": true
+    },
+    {
       "name": "No script errors",
       "passed": true
     },
@@ -835,52 +1075,52 @@
     {
       "width": 320,
       "height": 800,
-      "documentHeight": 6248
+      "documentHeight": 6775
     },
     {
       "width": 360,
       "height": 800,
-      "documentHeight": 5686
+      "documentHeight": 6241
     },
     {
       "width": 390,
       "height": 844,
-      "documentHeight": 5595
+      "documentHeight": 6125
     },
     {
       "width": 457,
       "height": 572,
-      "documentHeight": 5260
+      "documentHeight": 5751
     },
     {
       "width": 768,
       "height": 1024,
-      "documentHeight": 4687
+      "documentHeight": 4970
     },
     {
       "width": 1024,
       "height": 900,
-      "documentHeight": 4403
+      "documentHeight": 4610
     },
     {
       "width": 1280,
       "height": 1000,
-      "documentHeight": 4161
+      "documentHeight": 4336
     },
     {
       "width": 1422,
       "height": 1106,
-      "documentHeight": 4179
+      "documentHeight": 4336
     },
     {
       "width": 1440,
       "height": 1120,
-      "documentHeight": 4182
+      "documentHeight": 4337
     },
     {
       "width": 1600,
       "height": 1200,
-      "documentHeight": 4195
+      "documentHeight": 4367
     }
   ]
 }

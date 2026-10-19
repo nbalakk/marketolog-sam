@@ -37,5 +37,14 @@
     "privacy.html": "f0bdfd9efbe1f59a3c373fb998bdb7d3eabcf236c5d6cac2b9ad82c8a3cf55a4",
     "offer.html": "694cfb61457dc9da0b98164bc53237cb6a1d22300f74b6c7f69ec70e3035db80",
     "site-config.js": "40bac30ada378b6e8eaecf21d41772aee6e60c2c12480bf78aeb1ac9134222cd"
+  },
+  "livingIteration": {
+    "brief": "User found prior version empty and text-only; asked for creative, living product demonstration.",
+    "chosen": "Meaning assembles into an editorial post, supported by a physical ceramics still-life.",
+    "layout": "[headline + Telegram + assemble | context fragments + physical photo + assembled editorial post]; remaining page preserves working examples.",
+    "prebuildCritique": "The split is deliberate: it stages a real subject and a causal interaction rather than a decorative mock chat. Colour maps context to actual phrases; no floating ornaments or invented AI processing.",
+    "motion": "One photo entrance, user-triggered source fragments move toward matching editorial phrases; reset and rapid clicks supported; reduced motion immediate.",
+    "truth": "Fictional ceramics brand. Photo labelled generated, editorial text labelled prepared and not an actual bot answer.",
+    "scope": "Update experimental /frontend-design/ only; main mint entry and legal documents remain unchanged."
   }
 }
