@@ -16,3 +16,9 @@ qa/redesign/*
 !qa/redesign/menu.png
 !qa/redesign/pricing.png
 !qa/redesign/faq.png
+
+# Local Impeccable engine sessions and generated review cache.
+.impeccable/*
+!.impeccable/surfaces/
+!.impeccable/design.json
+assets/plates/

@@ -15,7 +15,7 @@ reduced.addEventListener('change', () => {
 });
 const toggle = document.getElementById('navToggle');
 const nav = document.getElementById('primaryNav');
-const narrow = window.matchMedia('(max-width: 680px)');
+const narrow = window.matchMedia('(max-width: 760px)');
 function closeMenu(focus=false) { if (!toggle || !nav) return; toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Открыть меню');nav.classList.remove('is-open');nav.inert=narrow.matches;if(focus)toggle.focus(); }
 if (toggle && nav) { nav.inert=narrow.matches;toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');nav.classList.toggle('is-open',open);nav.inert=narrow.matches&&!open;if(open)animateElement(nav,[{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'translateY(0)'}],{duration:320});}); nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));narrow.addEventListener('change',()=>closeMenu()); }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu(toggle?.getAttribute('aria-expanded')==='true');});
@@ -29,76 +29,24 @@ dialog?.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();dial
 dialog?.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
 dialog?.addEventListener('close',()=>{document.body.classList.remove('modal-open');dialogImage.removeAttribute('src');lastFocus?.focus({preventScroll:true});});
 
+
 const examples={
-post:{label:'Пост',prompt:'Анонс осеннего меню кофейни.\nДружелюбно, без рекламных клише.',draftTitle:'Осень — повод встретиться',draft:['Начать с повода: осеннее меню уже в кофейне.','Добавить детали: напиток, атмосфера, тёплый вкус.','Закончить простым приглашением без громких обещаний.']},
-plan:{label:'Контент-план',prompt:'План на неделю для кофейни.\nПознакомить с меню и командой, вовлечь гостей.',draftTitle:'Чередуем продукт, людей и общение',draft:['Показать сезонный напиток и рассказать о его вкусе.','Познакомить с бариста и повседневной жизнью кофейни.','Задать гостям простой вопрос и пригласить на выходные.']},
-audit:{label:'Разбор страницы',prompt:'Разбор страницы кофейни.\nПонятно ли новым гостям, что у нас есть и как нас найти?',draftTitle:'Смотрим глазами нового гостя',draft:['Понятна ли кофейня из описания профиля?','Есть ли адрес, часы работы и актуальное меню?','Что в публикациях помогает человеку решить, стоит ли зайти?']}
+ post:{label:'Пост',prompt:'У меня небольшой бренд керамики. Нужно придумать пост для Telegram о новой коллекции кружек. Аудитория — люди, которые ценят уют в доме и ручную работу. Тон — тёплый и искренний.'},
+ plan:{label:'Контент-план',prompt:'Составь контент-план на неделю для небольшого бренда керамики. Цель — познакомить подписчиков с коллекцией кружек, показать ручную работу и начать разговор. Формат — Telegram. Без выдуманных скидок и фактов.'},
+ audit:{label:'Разбор',prompt:'Помоги проверить страницу бренда керамики перед запуском новой коллекции. В описании сейчас только «Керамика ручной работы». Какие сведения стоит добавить, чтобы посетитель понял, что можно купить и как оформить заказ?'}
 };
 const panel=document.getElementById('demo-panel'),output=document.getElementById('demo-output');
-const tabs=[...document.querySelectorAll('[data-example]')];let example='post',stage=2;
-const initialPost=output?.innerHTML;
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function render(announce=true,direction=1) {
- if(!panel||!output)return;
- const model=examples[example];
- tabs.forEach(t=>{const selected=t.dataset.example===example;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;});
- panel.setAttribute('aria-labelledby','tab-'+example);
- document.getElementById('demo-prompt').textContent=model.prompt;
- document.getElementById('stage-title').textContent=['Уточняем задачу','Вариант структуры','Пример результата'][stage];
- document.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.stage)===stage)));
- output.classList.toggle('single',stage!==2||example!=='post');
- if(stage===0) output.innerHTML='<div><h3 class="draft-heading">Чем точнее запрос,<br>тем полезнее материал.</h3><ul class="draft-list"><li><b>01</b><span>Что за бизнес и для кого вы пишете?</span></li><li><b>02</b><span>Какую задачу должен решить материал?</span></li><li><b>03</b><span>Какие факты, тон и формат важно учесть?</span></li></ul><p class="draft-note">'+esc(model.prompt)+'</p></div>';
- else if(stage===1&&example==='post') output.innerHTML='<div class="edit-sample"><p class="edit-before"><del>Уникальное осеннее предложение!</del></p><p class="edit-after"><ins>Загляните <mark>на осенний кофе.</mark></ins></p><p>Сезонный латте, тёплый пирог и немного больше поводов для встречи.</p><p class="edit-comment">Конкретнее и ближе к гостю</p><p class="fine-print">Редакционный образец: показываем, как общую фразу можно сделать предметнее.</p></div>';
- else if(stage===1) output.innerHTML='<div><h3 class="draft-heading">'+esc(model.draftTitle)+'</h3><ul class="draft-list">'+model.draft.map((s,i)=>'<li><b>0'+(i+1)+'</b><span>'+esc(s)+'</span></li>').join('')+'</ul><p class="draft-note">Черновик — отправная точка. Детали бизнеса и финальный голос добавляете вы.</p></div>';
- else if(example==='post')output.innerHTML=initialPost;
- else if(example==='plan')output.innerHTML='<div><h3 class="draft-heading">Неделя в вашей кофейне</h3><table class="plan-table"><thead><tr><th>День</th><th>Тема и формат</th></tr></thead><tbody><tr><td>Пн</td><td>Осенний напиток: фото и история вкуса</td></tr><tr><td>Вт</td><td>Знакомство с бариста: короткое интервью</td></tr><tr><td>Ср</td><td>Любимый десерт гостей: опрос</td></tr><tr><td>Чт</td><td>Как готовим кофе: небольшой процесс</td></tr><tr><td>Пт</td><td>Идея для выходных: приглашение зайти</td></tr></tbody></table><p class="fine-print">Редакционный пример. Адаптируйте темы под своё меню.</p></div>';
- else output.innerHTML='<div><h3 class="draft-heading">Что проверить в первую очередь</h3><ul class="audit-list"><li><span class="audit-tag">01</span><div><strong>Описание профиля</strong><p>Новый гость должен быстро понять, где вы находитесь и чем интересна кофейня.</p></div></li><li><span class="audit-tag">02</span><div><strong>Меню и контакты</strong><p>Проверьте, что адрес, часы работы и актуальное меню легко найти.</p></div></li><li><span class="audit-tag">03</span><div><strong>Следующий шаг</strong><p>Подскажите, как забронировать стол, задать вопрос или проложить маршрут.</p></div></li></ul><p class="fine-print">Образец структуры разбора, не аудит реального бизнеса.</p></div>';
- const editorialNote=document.getElementById('editor-result-note');
- if(editorialNote)editorialNote.textContent=['Сначала — ваша мысль','Намечаем главное','Теперь есть с чем работать'][stage];
- if(announce){
-  animateElement(editorialNote,[{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,delay:100,fill:'backwards'});
-  output.querySelectorAll('.edit-sample > *').forEach((element,index)=>animateElement(element,[{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'translateY(0)'}],{duration:380,delay:index*55,fill:'backwards'}));
- }
- if(announce)animateElement(output,[{opacity:0,transform:'translateX('+direction*18+'px)'},{opacity:1,transform:'translateX(0)'}],{duration:380});
- if(announce){document.getElementById('demo-status').textContent=model.label+': '+['Задача','Черновик','Ваш материал'][stage];track('demo_interaction',{example,stage});}
-}
-tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>{const direction=tabs.findIndex(t=>t.dataset.example===example)<=i?1:-1;example=tab.dataset.example;stage=2;render(true,direction);});tab.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();tabs[next].focus();tabs[next].click();}});});
-document.querySelectorAll('[data-stage]').forEach(button=>button.addEventListener('click',()=>{stage=Number(button.dataset.stage);render();}));
-document.getElementById('demo-next')?.addEventListener('click',()=>{stage=(stage+1)%3;render();});
-document.getElementById('demo-prev')?.addEventListener('click',()=>{stage=(stage+2)%3;render(true,-1);});
-document.querySelectorAll('[data-show-example]').forEach(button=>button.addEventListener('click',()=>{example=button.dataset.showExample;stage=2;render();document.getElementById('examples').scrollIntoView({block:'start',behavior:reduced.matches?'auto':'smooth'});tabs.find(t=>t.dataset.example===example).focus({preventScroll:true});}));
-let touchX,touchY;
-panel?.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;touchY=e.changedTouches[0].clientY;},{passive:true});
-panel?.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX,dy=e.changedTouches[0].clientY-touchY;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5){stage=(stage+(dx<0?1:2))%3;render(true,dx<0?1:-1);}},{passive:true});
-if(panel)render(false);
-document.getElementById('copy-prompt')?.addEventListener('click',async()=>{const text='Напиши пост для кофейни про осенний пряный латте. Аудитория — гости по утрам, цель — пригласить зайти. Тёплый дружелюбный тон. Без скидок и выдуманных фактов.';const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText(text);status.textContent='Готово. Вставьте запрос в чат с Сэмом.';}catch{status.textContent='Скопируйте текст: '+text;}});
-
-// Entrance choreography is an enhancement; static content remains available.
-function revealHero() {
- animateElement(document.querySelector('.editor-underline'),[{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)'}],{duration:620,delay:480,fill:'backwards'});
- animateElement(document.querySelector('.thought-note img'),[{opacity:0,clipPath:'inset(0 100% 0 0)'},{opacity:1,clipPath:'inset(0 0% 0 0)'}],{duration:480,delay:640,fill:'backwards'});
- document.querySelectorAll('.hero-copy > *').forEach((element,index) => {
-  animateElement(element,[{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:640,delay:index*65,fill:'backwards'});
- });
- animateElement(document.querySelector('.hero .demo'),[{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:760,delay:160,fill:'backwards'});
-}
-if (!reduced.matches) {
- (document.fonts?.ready || Promise.resolve()).then(() => requestAnimationFrame(revealHero));
-}
-if ('IntersectionObserver' in window) {
- const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-   if (!entry.isIntersecting) return;
-   const element=entry.target;
-   const siblings=[...element.parentElement.children].filter(node=>node.matches('.tool,.how-grid>li'));
-   const stagger=Math.max(0,siblings.indexOf(element))*90;
-   animateElement(element,[{opacity:0,transform:'translateY(28px)'},{opacity:1,transform:'translateY(0)'}],{duration:660,delay:stagger,fill:'backwards'});
-   observer.unobserve(element);
-  });
- },{threshold:.12});
- document.querySelectorAll('.section-heading,.tools .section-title,.tool,.how-grid>li,.pricing-intro,.terms-panel,.faq-grid>.section-title,.final-inner').forEach(element=>observer.observe(element));
-}
-
+const tabs=[...document.querySelectorAll('[data-example]')];let example='post';const initialPost=output?.innerHTML;
+const contents={
+ plan:'<h3>Неделя вокруг новой коллекции</h3><table class="plan-table"><thead><tr><th>День</th><th>Тема и формат</th></tr></thead><tbody><tr><td>Пн</td><td>Знакомство с коллекцией: пост и детали кружек</td></tr><tr><td>Вт</td><td>Работа мастера: короткое видео процесса</td></tr><tr><td>Ср</td><td>Вопрос подписчикам: какая форма ближе?</td></tr><tr><td>Чт</td><td>Уход за керамикой: памятка на основе ваших рекомендаций</td></tr><tr><td>Пт</td><td>Как выбрать и заказать: понятная инструкция</td></tr></tbody></table>',
+ audit:'<h3>Что уточнить в описании страницы</h3><ul class="audit-list"><li><strong>Что именно можно купить</strong><p>«Керамика ручной работы» не называет изделия. Добавьте кружки и другие позиции, которые есть в ассортименте.</p></li><li><strong>Как оформить заказ</strong><p>Укажите рабочую ссылку на каталог или контакт для заказа.</p></li><li><strong>Куда возможна доставка</strong><p>Добавьте реальные города и условия. Утверждения о сроках и наличии сначала проверьте.</p></li></ul>'
+};
+function render(announce=true){if(!panel||!output)return;const model=examples[example];tabs.forEach(t=>{const selected=t.dataset.example===example;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1});panel.setAttribute('aria-labelledby','tab-'+example);document.getElementById('demo-prompt').textContent=model.prompt;output.innerHTML=example==='post'?initialPost:contents[example];document.querySelector('.copy-status').textContent='';if(announce){animateElement(output,[{opacity:.65,filter:'blur(2px)',transform:'translateY(6px)'},{opacity:1,filter:'blur(0)',transform:'translateY(0)'}],{duration:300});document.getElementById('demo-status').textContent=model.label+': редакционный пример';track('demo_interaction',{example})}}
+tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>{example=tab.dataset.example;render()});tab.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();tabs[next].focus();tabs[next].click()}})});
+document.querySelectorAll('[data-show-example]').forEach(button=>button.addEventListener('click',()=>{example=button.dataset.showExample;render();document.getElementById('examples').scrollIntoView({block:'start',behavior:reduced.matches?'auto':'smooth'});tabs.find(t=>t.dataset.example===example).focus({preventScroll:true})}));
+document.getElementById('copy-prompt')?.addEventListener('click',async()=>{const text=examples[example].prompt;const status=document.querySelector('.copy-status');try{await navigator.clipboard.writeText(text);status.textContent='Скопировано. Вставьте запрос в чат с Сэмом.'}catch{status.textContent='Не удалось скопировать автоматически. Выделите текст запроса выше и скопируйте его.';const range=document.createRange();range.selectNodeContents(document.getElementById('demo-prompt'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range)}});
+// The light field opens into a readable working surface once. Content starts visible.
+if(!reduced.matches){(document.fonts?.ready||Promise.resolve()).then(()=>requestAnimationFrame(()=>{animateElement(document.querySelector('.hero-copy'),[{opacity:.7,filter:'blur(2px)'},{opacity:1,filter:'blur(0)'}],{duration:680});animateElement(document.querySelector('.demo'),[{opacity:.75,clipPath:'inset(0 0 8% 0 round 14px)'},{opacity:1,clipPath:'inset(0 0 0% 0 round 14px)'}],{duration:720})}))}
 // Animate the real details element so native links and keyboard behavior remain intact.
 const detailsTargets = new WeakMap();
 document.querySelectorAll('.faq-item').forEach(details => {
