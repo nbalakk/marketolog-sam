@@ -1,0 +1,41 @@
+{
+  "skill": "anthropics/skills/skills/frontend-design",
+  "scope": "Separate runnable preview at /frontend-design/; main published direction preserved.",
+  "product": "Сэм, ИИ-маркетолог в Telegram; website explains work, bot performs tasks.",
+  "userBrief": "Calm light digital; delegated color choice; stronger art direction and functional demonstration; moderate motion.",
+  "palette": {
+    "paper": "#f8f9fc",
+    "ink": "#202443",
+    "muted": "#59617b",
+    "action": "#4854bb",
+    "workingField": "#e8ebf9",
+    "rule": "#d2d7e8"
+  },
+  "type": "Self-hosted Cyrillic Golos Text. Display 600, 88px at1440; body400,18px; controls500. One family for voice and reading.",
+  "layoutsConsidered": [
+    {
+      "wireframe": "[nav]\n[headline + CTA | mock chat]\n[three cards]",
+      "review": "Rejected: familiar software landing split and another fake chat repeats a category template."
+    },
+    {
+      "wireframe": "[nav]\n[large headline]\n[gradient showcase]\n[rows]",
+      "review": "Rejected: replaces mint with violet without adding a reason for the page to be remembered."
+    },
+    {
+      "wireframe": "[nav]\n[     statement about meaning + action     ]\n[ task selectors                          ]\n[ real brief | readable material + voice ]\n[ task rows / Telegram steps / terms ]",
+      "review": "Selected: the distinctive interaction compares actual written versions of the same brief. One authored focus, restrained remainder."
+    }
+  ],
+  "signature": "Editorial comparison: neutral/warm/short wording. Click changes example text and copyable task together. Not live AI generation; no simulated processing.",
+  "motion": "One visible-by-default opening of the text surface; 240ms change-of-voice acknowledgement; native FAQ continuity; reduced-motion supported live.",
+  "claims": "Editorial examples for hypothetical ceramics brand. No invented prices, usage limits, testimonials, performance or actual bot outputs.",
+  "reviewBeforeBuild": "Specificity comes from voice comparison and actual copy, not decorative gradients, metrics, handwritten marks or repeated cards.",
+  "mainBaseline": {
+    "index.html": "b5ec8c95cda65e72e709fbfb42db57b1f30427ab225735214bb2d9785cbb2088",
+    "styles.css": "1ac794be19f4d6180b98f0b1177180186825f578f8addf1422aa40b95bb6ba16",
+    "script.js": "c8873b5ae636dcb3ecf5faff434881a96fe3b2a96e7df2964ac8e3246487c25f",
+    "privacy.html": "f0bdfd9efbe1f59a3c373fb998bdb7d3eabcf236c5d6cac2b9ad82c8a3cf55a4",
+    "offer.html": "694cfb61457dc9da0b98164bc53237cb6a1d22300f74b6c7f69ec70e3035db80",
+    "site-config.js": "40bac30ada378b6e8eaecf21d41772aee6e60c2c12480bf78aeb1ac9134222cd"
+  }
+}

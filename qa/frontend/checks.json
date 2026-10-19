@@ -1,0 +1,886 @@
+{
+  "checks": [
+    {
+      "name": "privacy.html legal copy unchanged",
+      "passed": true
+    },
+    {
+      "name": "privacy.html section anchors retained",
+      "passed": true
+    },
+    {
+      "name": "offer.html legal copy unchanged",
+      "passed": true
+    },
+    {
+      "name": "offer.html section anchors retained",
+      "passed": true
+    },
+    {
+      "name": "Analytics configuration unchanged",
+      "passed": true
+    },
+    {
+      "name": "No analytics before consent",
+      "passed": true
+    },
+    {
+      "name": "Reject consent persists",
+      "passed": true
+    },
+    {
+      "name": "One main and one H1",
+      "passed": true
+    },
+    {
+      "name": "Golos font loaded",
+      "passed": true
+    },
+    {
+      "name": "Three simple demo tabs",
+      "passed": true
+    },
+    {
+      "name": "Main version preserved: index.html",
+      "passed": true
+    },
+    {
+      "name": "Main version preserved: styles.css",
+      "passed": true
+    },
+    {
+      "name": "Main version preserved: script.js",
+      "passed": true
+    },
+    {
+      "name": "Main version preserved: privacy.html",
+      "passed": true
+    },
+    {
+      "name": "Main version preserved: offer.html",
+      "passed": true
+    },
+    {
+      "name": "Main version preserved: site-config.js",
+      "passed": true
+    },
+    {
+      "name": "320px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "320px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "320px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "320px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "320px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "320px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "320px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "320px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "320px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "320px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "320px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "320px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "320px no broken images",
+      "passed": true
+    },
+    {
+      "name": "360px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "360px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "360px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "360px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "360px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "360px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "360px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "360px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "360px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "360px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "360px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "360px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "360px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "360px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "360px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "360px no broken images",
+      "passed": true
+    },
+    {
+      "name": "390px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "390px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "390px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "390px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "390px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "390px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "390px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "390px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "390px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "390px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "390px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "390px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "390px no broken images",
+      "passed": true
+    },
+    {
+      "name": "457px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "457px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "457px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "457px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "457px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "457px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "457px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "457px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "457px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "457px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "457px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "457px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "457px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "457px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "457px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "457px no broken images",
+      "passed": true
+    },
+    {
+      "name": "768px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "768px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "768px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "768px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "768px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "768px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "768px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "768px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "768px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "768px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "768px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "768px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "768px no broken images",
+      "passed": true
+    },
+    {
+      "name": "1024px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1024px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1024px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1024px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1024px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1024px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1024px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "1024px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "1024px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "1024px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "1024px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "1024px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "1024px no broken images",
+      "passed": true
+    },
+    {
+      "name": "1280px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1280px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1280px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1280px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1280px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1280px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1280px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "1280px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "1280px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "1280px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "1280px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "1280px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "1280px no broken images",
+      "passed": true
+    },
+    {
+      "name": "1422px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1422px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1422px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1422px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1422px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1422px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1422px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1422px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1422px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1422px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "1422px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "1422px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "1422px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "1422px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "1422px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "1422px no broken images",
+      "passed": true
+    },
+    {
+      "name": "1440px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1440px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1440px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1440px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1440px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1440px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1440px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "1440px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "1440px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "1440px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "1440px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "1440px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "1440px no broken images",
+      "passed": true
+    },
+    {
+      "name": "1600px post no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1600px post correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1600px post visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1600px plan no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1600px plan correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1600px plan visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1600px audit no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1600px audit correct selected tab",
+      "passed": true
+    },
+    {
+      "name": "1600px audit visible provenance",
+      "passed": true
+    },
+    {
+      "name": "1600px neutral voice fits",
+      "passed": true
+    },
+    {
+      "name": "1600px neutral voice selected",
+      "passed": true
+    },
+    {
+      "name": "1600px warm voice fits",
+      "passed": true
+    },
+    {
+      "name": "1600px warm voice selected",
+      "passed": true
+    },
+    {
+      "name": "1600px short voice fits",
+      "passed": true
+    },
+    {
+      "name": "1600px short voice selected",
+      "passed": true
+    },
+    {
+      "name": "1600px no broken images",
+      "passed": true
+    },
+    {
+      "name": "Warm voice copied with task",
+      "passed": true
+    },
+    {
+      "name": "Short voice changes actual text",
+      "passed": true
+    },
+    {
+      "name": "Keyboard tabs change result",
+      "passed": true
+    },
+    {
+      "name": "Voice controls hidden for content plan",
+      "passed": true
+    },
+    {
+      "name": "End selects last tab",
+      "passed": true
+    },
+    {
+      "name": "Copy selected task",
+      "passed": true
+    },
+    {
+      "name": "Clipboard failure recovery",
+      "passed": true
+    },
+    {
+      "name": "Clipboard fallback selects full request",
+      "passed": true
+    },
+    {
+      "name": "Capability opens matching example",
+      "passed": true
+    },
+    {
+      "name": "FAQ opens",
+      "passed": true
+    },
+    {
+      "name": "Real screenshot opens modal",
+      "passed": true
+    },
+    {
+      "name": "Modal closes and returns focus",
+      "passed": true
+    },
+    {
+      "name": "privacy.html 390px fits",
+      "passed": true
+    },
+    {
+      "name": "privacy.html 1440px fits",
+      "passed": true
+    },
+    {
+      "name": "offer.html 390px fits",
+      "passed": true
+    },
+    {
+      "name": "offer.html 1440px fits",
+      "passed": true
+    },
+    {
+      "name": "Mobile menu opens",
+      "passed": true
+    },
+    {
+      "name": "Escape closes menu",
+      "passed": true
+    },
+    {
+      "name": "Local preview never sends analytics",
+      "passed": true
+    },
+    {
+      "name": "Accepted consent remembered",
+      "passed": true
+    },
+    {
+      "name": "Valid Telegram destination",
+      "passed": true
+    },
+    {
+      "name": "Valid Telegram destination",
+      "passed": true
+    },
+    {
+      "name": "Valid Telegram destination",
+      "passed": true
+    },
+    {
+      "name": "Valid Telegram destination",
+      "passed": true
+    },
+    {
+      "name": "Valid Telegram destination",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion has no active animations",
+      "passed": true
+    },
+    {
+      "name": "Authored entrance runs",
+      "passed": true
+    },
+    {
+      "name": "Tab change animates",
+      "passed": true
+    },
+    {
+      "name": "Live motion preference stops animation",
+      "passed": true
+    },
+    {
+      "name": "No script errors",
+      "passed": true
+    },
+    {
+      "name": "No failed local resources",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failedResources": [],
+  "viewports": [
+    {
+      "width": 320,
+      "height": 800,
+      "documentHeight": 6248
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "documentHeight": 5686
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentHeight": 5595
+    },
+    {
+      "width": 457,
+      "height": 572,
+      "documentHeight": 5260
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "documentHeight": 4687
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "documentHeight": 4403
+    },
+    {
+      "width": 1280,
+      "height": 1000,
+      "documentHeight": 4161
+    },
+    {
+      "width": 1422,
+      "height": 1106,
+      "documentHeight": 4179
+    },
+    {
+      "width": 1440,
+      "height": 1120,
+      "documentHeight": 4182
+    },
+    {
+      "width": 1600,
+      "height": 1200,
+      "documentHeight": 4195
+    }
+  ]
+}
